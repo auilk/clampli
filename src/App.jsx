@@ -1,8 +1,10 @@
+import InputField from "./components/InputField";
+
 function App()
 {
   return (
     <div className="w-dvw h-dvh flex justify-center items-center">
-      <h1 className="text-9xl text-center font-bold text-white">CLAMPLI</h1>
+      <InputField label="Minimum Size" placeholder="Enter your min size"></InputField>
     </div>
   );
 }
