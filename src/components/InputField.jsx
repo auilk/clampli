@@ -8,20 +8,19 @@ import { useState } from "react";
  * @param {Number} props.width
  * @param {Number} props.textSize
  * @param {string} props.textColor
- * @param {string} props.labelColor
  * @param {string} props.borderColor
  * @returns {JSX.Element}
  */
 
-function InputField({label, placeholder, width = 20, textSize = 1.1, labelColor, textColor, borderColor})
+function InputField({label, placeholder, width = 20, textSize = 1, textColor, borderColor})
 {
     const [value, SetValue] = useState("");
 
     return (
-        <div className="flex flex-col">
-            <label className="text-lg text-white" htmlFor="input"
+        <div className="flex flex-col relative">
+            <label className="pl-2 pr-2 text-lg text-white absolute -top-3.5 left-2 bg-graphite-900" htmlFor="input"
                 style={{
-                    color: labelColor
+                    color: borderColor
                 }}>{label}</label>
             <input className="pl-3 pr-3 pt-3 pb-3 border-2 rounded-md outline-0 text-6xl text-white" id="input" type="text" value={value} placeholder={placeholder} onChange={(event) => SetValue(event.target.value)}
                 style={{
