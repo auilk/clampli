@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+
+@layer base {
+  * {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #0E0E0E;
+  }
+}
+
+@layer utilities {
+  .bg-graphite {
+    background-color: #0E0E0E;
+  }
+
+  .text-graphite {
+    color: #0E0E0E;
+  }
+}
