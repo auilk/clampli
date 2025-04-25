@@ -1,18 +1,17 @@
 import { useState } from "react";
 
-
 /**
  * @param {Object} props
- * @param {string} props.label
- * @param {string} props.placeholder
- * @param {Number} props.width
- * @param {Number} props.textSize
- * @param {string} props.textColor
- * @param {string} props.borderColor
+ * @param {string} [props.label="label"]
+ * @param {string} [props.placeholder="placeholder"]
+ * @param {number} [props.width=20]
+ * @param {number} [props.textSize=1]
+ * @param {string} [props.textColor]
+ * @param {string} [props.borderColor]
  * @returns {JSX.Element}
  */
 
-function InputField({label, placeholder, width = 20, textSize = 1, textColor, borderColor})
+function InputField({label = "label", placeholder = "placeholder", width = 20, textSize = 1, textColor, borderColor})
 {
     const [value, SetValue] = useState("");
 
