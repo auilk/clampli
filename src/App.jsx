@@ -2,6 +2,7 @@ import { NavBar } from "./components/NavBar";
 import NavLink from "./components/NavLink";
 import GitIcon from "./assets/icons/github-icon.png";
 import ClampliLogo from "./assets/logos/clampli-logo.png";
+import DottedBG from "./components/DottedBG";
 
 
 function App()
@@ -16,6 +17,7 @@ function App()
             backgroundImage: `url(${ClampliLogo})`,
           }}></div>
       </NavBar>
+      <DottedBG></DottedBG>
     </>
   );
 }
