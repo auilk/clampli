@@ -36,11 +36,11 @@ function NavBar({children, gap = 5})
 
     return(
         <NavBarContext.Provider value={true}>
-            <nav className="m-2 flex border-t-2 border-b-2 border-white"
+            <nav className="m-2 flex border-t-3 border-b-3 border-white"
                 style={{
                     gap: `${gap}px`,
                 }}>
-                <div className="pl-10 pr-10 pt-3 pb-3 ml-8 flex justify-center items-center border-l-2 border-r-2 border-white"
+                <div className="pl-10 pr-10 pt-3 pb-3 ml-8 flex justify-center items-center border-l-3 border-r-3 border-white"
                     style={{
                         gap: `${gap}px`,
                     }}>
@@ -52,7 +52,7 @@ function NavBar({children, gap = 5})
                     }}>
                     {centerElements}
                 </div>
-                <div className="pr-10 pl-10 pt-3 pb-3 mr-8 flex justify-center items-center border-r-2 border-l-2 border-white" 
+                <div className="pr-10 pl-10 pt-3 pb-3 mr-8 flex justify-center items-center border-r-3 border-l-3 border-white" 
                     style={{
                         gap: `${gap}px`,
                     }}>
