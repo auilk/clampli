@@ -60,13 +60,14 @@ function DottedBG({className})
             {
                 vec2 grid = fract(vTexCoord * 10.0);
                 vec2 id = floor(vTexCoord * 10.0);
+                vec2 tileSize = vec2(5.0);
                 
                 vec2 interp = smoothstep(0.0, 1.0, grid);
                 
-                float bottomLeft  = dot(Random(id + vec2(0.0, 0.0)), grid - vec2(0.0, 0.0));
-                float bottomRight = dot(Random(id + vec2(1.0, 0.0)), grid - vec2(1.0, 0.0));
-                float topLeft     = dot(Random(id + vec2(0.0, 1.0)), grid - vec2(0.0, 1.0));
-                float topRight    = dot(Random(id + vec2(1.0, 1.0)), grid - vec2(1.0, 1.0));
+                float bottomLeft  = dot(Random(mod(id + vec2(0.0, 0.0), 5.0)), grid - vec2(0.0, 0.0));
+                float bottomRight = dot(Random(mod(id + vec2(1.0, 0.0), 5.0)), grid - vec2(1.0, 0.0));
+                float topLeft     = dot(Random(mod(id + vec2(0.0, 1.0), 5.0)), grid - vec2(0.0, 1.0));
+                float topRight    = dot(Random(mod(id + vec2(1.0, 1.0), 5.0)), grid - vec2(1.0, 1.0));
                 
                 float noise = mix(mix(bottomLeft, bottomRight, interp.x), mix(topLeft, topRight, interp.x), interp.y);
                 
