@@ -50,9 +50,27 @@ function DottedBG({className})
             
             out vec4 FragColor;
             
+            vec2 Random(vec2 point)
+            {
+                point = vec2(dot(point, vec2(127.1, 311.7)), dot(point, vec2(269.5, 183.3)));
+                return fract(sin(point) * 43758.5453) * 2.0 - 1.0;
+            }
+
             void main()
             {
-                FragColor = vec4(vTexCoord, 0.0, 1.0);
+                vec2 grid = fract(vTexCoord * 10.0);
+                vec2 id = floor(vTexCoord * 10.0);
+                
+                vec2 interp = smoothstep(0.0, 1.0, grid);
+                
+                float bottomLeft  = dot(Random(id + vec2(0.0, 0.0)), grid - vec2(0.0, 0.0));
+                float bottomRight = dot(Random(id + vec2(1.0, 0.0)), grid - vec2(1.0, 0.0));
+                float topLeft     = dot(Random(id + vec2(0.0, 1.0)), grid - vec2(0.0, 1.0));
+                float topRight    = dot(Random(id + vec2(1.0, 1.0)), grid - vec2(1.0, 1.0));
+                
+                float noise = mix(mix(bottomLeft, bottomRight, interp.x), mix(topLeft, topRight, interp.x), interp.y);
+                
+                FragColor = vec4(vec3(noise * 0.5 + 0.5), 1.0);
             }`;
 
         const vertexShader = gl.createShader(gl.VERTEX_SHADER);
