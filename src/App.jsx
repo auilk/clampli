@@ -8,7 +8,7 @@ import DottedBG from "./components/DottedBG";
 function App()
 {
   return (
-    <>
+    <div className="flex flex-col h-dvh">
       <NavBar gap={10}>
         <NavLink position="right" link="https://github.com/auilk"text="GitHub" fontSize={0.6} icon={GitIcon}></NavLink>
         <p position="center" className="text-white text-lg">Fluid type & layout—no math, just magic</p>
@@ -18,7 +18,7 @@ function App()
           }}></div>
       </NavBar>
       <DottedBG></DottedBG>
-    </>
+    </div>
   );
 }
 

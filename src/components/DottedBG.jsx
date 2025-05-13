@@ -1,14 +1,6 @@
 import { useEffect, useRef } from "react";
 
-/**
- * A component that renders a background with dotted pattern.
- * 
- * @param {Object} props - The properties passed to the component.
- * @param {string} [props.className] - Optional class name to apply custom styling to the component.
- * 
- * @returns {JSX.Element} A div element with a dotted background.
- */
-function DottedBG({className})
+function DottedBG()
 {
     const canvas = useRef(null);
     const animationRequest = useRef(null);
@@ -83,13 +75,27 @@ function DottedBG({className})
 
             void main()
             {
-                vec2 uv = vec2(vTexCoord.x * uResolution.x / uResolution.y, vTexCoord.y);
+                vec2 uv = vTexCoord * 2.0;
+                if (uResolution.x < uResolution.y) 
+                {
+                    uv.y *= uResolution.y / uResolution.x;
+                }
+                else
+                {
+                    uv.x *= uResolution.x / uResolution.y;
+                }
+
+                float circleDensity = 4.5;
 
                 float zTiling = 5.0;
-                float z = mod(uTime * 0.1, zTiling);
-                float noise = Noise(vec3(uv, z), zTiling);
+                float z = mod(uTime * 0.5, zTiling);
+                float noise = Noise(vec3(floor(uv * circleDensity) / circleDensity, z), zTiling);
+
+                float radius = noise * 0.5 + 0.5;
+                float circle = step(length(fract(uv * circleDensity) * circleDensity - 1.0) - noise, 0.0);
+
                 
-                FragColor = vec4(vec3(noise), 1.0);
+                FragColor = vec4(vec3(circle), 1.0);
             }`;
 
         const vertexShader = gl.createShader(gl.VERTEX_SHADER);
@@ -165,13 +171,12 @@ function DottedBG({className})
         const uTimeLoc = gl.getUniformLocation(shaderProgram, "uTime");
         const uResolutionLoc = gl.getUniformLocation(shaderProgram, "uResolution");
 
-        gl.uniform2f(uResolutionLoc, canvas.current.offsetWidth, canvas.current.offsetHeight);
-
         const Render = (time) =>
         {
             gl.clear(gl.COLOR_BUFFER_BIT);
 
             time = Math.round((time / 1000) * 1000) / 1000;
+
             gl.uniform1f(uTimeLoc, time);
 
             gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_INT, 0);
@@ -181,12 +186,29 @@ function DottedBG({className})
 
         animationRequest.current = requestAnimationFrame(Render);
 
-        return () => cancelAnimationFrame(animationRequest.current);
+        const CanvasResizeCallback = () =>
+        {
+            canvas.current.width = canvas.current.clientWidth;
+            canvas.current.height = canvas.current.clientHeight;
+            gl.viewport(0, 0, canvas.current.width, canvas.current.height);
+            gl.uniform2f(uResolutionLoc, canvas.current.width, canvas.current.height);
+        }
+
+        window.addEventListener("resize", CanvasResizeCallback);
+        CanvasResizeCallback();
+
+        return () => 
+            {
+                cancelAnimationFrame(animationRequest.current);
+                window.removeEventListener("resize", CanvasResizeCallback);
+            }
     }, []);
 
 
     return (
-        <canvas ref={canvas} className={className}></canvas>
+        <div className="min-h-0 p-5 flex-1">
+            <canvas ref={canvas} className="block w-full h-full border-2 rounded-xl border-white"></canvas>
+        </div>
     );
 }
 
