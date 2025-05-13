@@ -51,6 +51,7 @@ function DottedBG({className})
             out vec4 FragColor;
 
             uniform float uTime;
+            uniform vec2 uResolution;
             
             vec3 RandomUnitVec(vec3 point)
             {
@@ -60,10 +61,12 @@ function DottedBG({className})
 
             void main()
             {
+                vec2 uv = vec2(vTexCoord.x * uResolution.x / uResolution.y, vTexCoord.y);
+
                 float z = uTime * 0.1;
                 float frequency = 10.0;
-                vec3 grid = fract(vec3(vTexCoord, z) * frequency);
-                vec3 id = floor(vec3(vTexCoord, z) * frequency);
+                vec3 grid = fract(vec3(uv, z) * frequency);
+                vec3 id = floor(vec3(uv, z) * frequency);
                 vec3 tileSize = vec3(10.0);
                 
                 vec3 interp = smoothstep(0.0, 1.0, grid);
@@ -79,8 +82,10 @@ function DottedBG({className})
                 float h = dot(RandomUnitVec(mod(id + vec3(1.0, 1.0, 1.0), tileSize)), grid - vec3(1.0, 1.0, 1.0));
                 
                 float noise = mix(mix(mix(a, b, interp.x), mix(c, d, interp.x), interp.y), mix(mix(e, f, interp.x), mix(g, h, interp.x), interp.y), interp.z);
+
+                float circle = length(uv) - 0.5;
                 
-                FragColor = vec4(vec3(noise * 0.5 + 0.5), 1.0);
+                FragColor = vec4(vec3(smoothstep(circle, circle + 0.025, 0.0)), 1.0);
             }`;
 
         const vertexShader = gl.createShader(gl.VERTEX_SHADER);
@@ -123,10 +128,10 @@ function DottedBG({className})
         gl.deleteShader(fragmentShader);
 
         const vertices = new Float32Array([
-            -1.0,  1.0,    0.0, 1.0,
-            -1.0, -1.0,    0.0, 0.0,
-             1.0, -1.0,    1.0, 0.0,
-             1.0,  1.0,    1.0, 1.0
+            -1.0,  1.0,    -1.0,  1.0,
+            -1.0, -1.0,    -1.0, -1.0,
+             1.0, -1.0,     1.0, -1.0,
+             1.0,  1.0,     1.0,  1.0
         ]);
 
         const indices = new Int32Array([
@@ -154,6 +159,9 @@ function DottedBG({className})
         gl.enableVertexAttribArray(aTexCoordLoc);
 
         const uTimeLoc = gl.getUniformLocation(shaderProgram, "uTime");
+        const uResolutionLoc = gl.getUniformLocation(shaderProgram, "uResolution");
+
+        gl.uniform2f(uResolutionLoc, canvas.current.offsetWidth, canvas.current.offsetHeight);
 
         const Render = (time) =>
         {
