@@ -49,6 +49,8 @@ function DottedBG({className})
             in vec2 vTexCoord;
             
             out vec4 FragColor;
+
+            uniform float uTime;
             
             vec3 RandomUnitVec(vec3 point)
             {
@@ -58,7 +60,7 @@ function DottedBG({className})
 
             void main()
             {
-                float z = 0.1;
+                float z = uTime * 0.1;
                 float frequency = 10.0;
                 vec3 grid = fract(vec3(vTexCoord, z) * frequency);
                 vec3 id = floor(vec3(vTexCoord, z) * frequency);
@@ -151,9 +153,14 @@ function DottedBG({className})
         gl.vertexAttribPointer(aTexCoordLoc, 2, gl.FLOAT, false, vertices.BYTES_PER_ELEMENT * 4, vertices.BYTES_PER_ELEMENT * 2);
         gl.enableVertexAttribArray(aTexCoordLoc);
 
-        const Render = () =>
+        const uTimeLoc = gl.getUniformLocation(shaderProgram, "uTime");
+
+        const Render = (time) =>
         {
             gl.clear(gl.COLOR_BUFFER_BIT);
+
+            time = Math.round((time / 1000) * 1000) / 1000;
+            gl.uniform1f(uTimeLoc, time);
 
             gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_INT, 0);
 
