@@ -28,7 +28,7 @@ function DottedBG({className})
 
         const vertexShaderSource = 
         `   #version 300 es
-            precision mediump float;
+            precision lowp float;
 
             in vec3 aPos;
             in vec2 aTexCoord;
@@ -44,7 +44,7 @@ function DottedBG({className})
 
         const fragmentShaderSource = 
         `   #version 300 es
-            precision mediump float;
+            precision lowp float;
             
             in vec2 vTexCoord;
             
@@ -58,34 +58,38 @@ function DottedBG({className})
                 point = vec3(dot(point, vec3(127.1, 311.7, 74.7)), dot(point, vec3(269.5, 183.3, 246.1)), dot(point, vec3(113.5, 271.9, 124.6)));
                 return normalize(fract(sin(point) * 43758.5453123) * 2.0 - 1.0);
             }
+            
+            float Noise(vec3 point, float zTiling)
+            {
+                vec3 grid = fract(point);
+                vec3 id = floor(point);
+                
+                vec3 interp = smoothstep(0.0, 1.0, grid);
+                
+                float a = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 0.0, mod(id.z + 0.0, zTiling))), grid - vec3(0.0, 0.0, 0.0));
+                float b = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 0.0, mod(id.z + 0.0, zTiling))), grid - vec3(1.0, 0.0, 0.0));
+                float c = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 1.0, mod(id.z + 0.0, zTiling))), grid - vec3(0.0, 1.0, 0.0));
+                float d = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 1.0, mod(id.z + 0.0, zTiling))), grid - vec3(1.0, 1.0, 0.0));
+
+                float e = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 0.0, mod(id.z + 1.0, zTiling))), grid - vec3(0.0, 0.0, 1.0));
+                float f = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 0.0, mod(id.z + 1.0, zTiling))), grid - vec3(1.0, 0.0, 1.0));
+                float g = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 1.0, mod(id.z + 1.0, zTiling))), grid - vec3(0.0, 1.0, 1.0));
+                float h = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 1.0, mod(id.z + 1.0, zTiling))), grid - vec3(1.0, 1.0, 1.0));
+                
+                float noise = mix(mix(mix(a, b, interp.x), mix(c, d, interp.x), interp.y), mix(mix(e, f, interp.x), mix(g, h, interp.x), interp.y), interp.z);
+
+                return noise;
+            }
 
             void main()
             {
                 vec2 uv = vec2(vTexCoord.x * uResolution.x / uResolution.y, vTexCoord.y);
 
-                float z = uTime * 0.1;
-                float frequency = 10.0;
-                vec3 grid = fract(vec3(uv, z) * frequency);
-                vec3 id = floor(vec3(uv, z) * frequency);
-                vec3 tileSize = vec3(10.0);
+                float zTiling = 5.0;
+                float z = mod(uTime * 0.1, zTiling);
+                float noise = Noise(vec3(uv, z), zTiling);
                 
-                vec3 interp = smoothstep(0.0, 1.0, grid);
-                
-                float a = dot(RandomUnitVec(mod(id + vec3(0.0, 0.0, 0.0), tileSize)), grid - vec3(0.0, 0.0, 0.0));
-                float b = dot(RandomUnitVec(mod(id + vec3(1.0, 0.0, 0.0), tileSize)), grid - vec3(1.0, 0.0, 0.0));
-                float c = dot(RandomUnitVec(mod(id + vec3(0.0, 1.0, 0.0), tileSize)), grid - vec3(0.0, 1.0, 0.0));
-                float d = dot(RandomUnitVec(mod(id + vec3(1.0, 1.0, 0.0), tileSize)), grid - vec3(1.0, 1.0, 0.0));
-
-                float e = dot(RandomUnitVec(mod(id + vec3(0.0, 0.0, 1.0), tileSize)), grid - vec3(0.0, 0.0, 1.0));
-                float f = dot(RandomUnitVec(mod(id + vec3(1.0, 0.0, 1.0), tileSize)), grid - vec3(1.0, 0.0, 1.0));
-                float g = dot(RandomUnitVec(mod(id + vec3(0.0, 1.0, 1.0), tileSize)), grid - vec3(0.0, 1.0, 1.0));
-                float h = dot(RandomUnitVec(mod(id + vec3(1.0, 1.0, 1.0), tileSize)), grid - vec3(1.0, 1.0, 1.0));
-                
-                float noise = mix(mix(mix(a, b, interp.x), mix(c, d, interp.x), interp.y), mix(mix(e, f, interp.x), mix(g, h, interp.x), interp.y), interp.z);
-
-                float circle = length(uv) - 0.5;
-                
-                FragColor = vec4(vec3(smoothstep(circle, circle + 0.025, 0.0)), 1.0);
+                FragColor = vec4(vec3(noise), 1.0);
             }`;
 
         const vertexShader = gl.createShader(gl.VERTEX_SHADER);
