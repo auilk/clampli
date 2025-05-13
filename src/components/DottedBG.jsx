@@ -50,26 +50,33 @@ function DottedBG({className})
             
             out vec4 FragColor;
             
-            vec2 Random(vec2 point)
+            vec3 RandomUnitVec(vec3 point)
             {
-                point = vec2(dot(point, vec2(127.1, 311.7)), dot(point, vec2(269.5, 183.3)));
-                return fract(sin(point) * 43758.5453) * 2.0 - 1.0;
+                point = vec3(dot(point, vec3(127.1, 311.7, 74.7)), dot(point, vec3(269.5, 183.3, 246.1)), dot(point, vec3(113.5, 271.9, 124.6)));
+                return normalize(fract(sin(point) * 43758.5453123) * 2.0 - 1.0);
             }
 
             void main()
             {
-                vec2 grid = fract(vTexCoord * 10.0);
-                vec2 id = floor(vTexCoord * 10.0);
-                vec2 tileSize = vec2(5.0);
+                float z = 0.1;
+                float frequency = 10.0;
+                vec3 grid = fract(vec3(vTexCoord, z) * frequency);
+                vec3 id = floor(vec3(vTexCoord, z) * frequency);
+                vec3 tileSize = vec3(10.0);
                 
-                vec2 interp = smoothstep(0.0, 1.0, grid);
+                vec3 interp = smoothstep(0.0, 1.0, grid);
                 
-                float bottomLeft  = dot(Random(mod(id + vec2(0.0, 0.0), 5.0)), grid - vec2(0.0, 0.0));
-                float bottomRight = dot(Random(mod(id + vec2(1.0, 0.0), 5.0)), grid - vec2(1.0, 0.0));
-                float topLeft     = dot(Random(mod(id + vec2(0.0, 1.0), 5.0)), grid - vec2(0.0, 1.0));
-                float topRight    = dot(Random(mod(id + vec2(1.0, 1.0), 5.0)), grid - vec2(1.0, 1.0));
+                float a = dot(RandomUnitVec(mod(id + vec3(0.0, 0.0, 0.0), tileSize)), grid - vec3(0.0, 0.0, 0.0));
+                float b = dot(RandomUnitVec(mod(id + vec3(1.0, 0.0, 0.0), tileSize)), grid - vec3(1.0, 0.0, 0.0));
+                float c = dot(RandomUnitVec(mod(id + vec3(0.0, 1.0, 0.0), tileSize)), grid - vec3(0.0, 1.0, 0.0));
+                float d = dot(RandomUnitVec(mod(id + vec3(1.0, 1.0, 0.0), tileSize)), grid - vec3(1.0, 1.0, 0.0));
+
+                float e = dot(RandomUnitVec(mod(id + vec3(0.0, 0.0, 1.0), tileSize)), grid - vec3(0.0, 0.0, 1.0));
+                float f = dot(RandomUnitVec(mod(id + vec3(1.0, 0.0, 1.0), tileSize)), grid - vec3(1.0, 0.0, 1.0));
+                float g = dot(RandomUnitVec(mod(id + vec3(0.0, 1.0, 1.0), tileSize)), grid - vec3(0.0, 1.0, 1.0));
+                float h = dot(RandomUnitVec(mod(id + vec3(1.0, 1.0, 1.0), tileSize)), grid - vec3(1.0, 1.0, 1.0));
                 
-                float noise = mix(mix(bottomLeft, bottomRight, interp.x), mix(topLeft, topRight, interp.x), interp.y);
+                float noise = mix(mix(mix(a, b, interp.x), mix(c, d, interp.x), interp.y), mix(mix(e, f, interp.x), mix(g, h, interp.x), interp.y), interp.z);
                 
                 FragColor = vec4(vec3(noise * 0.5 + 0.5), 1.0);
             }`;
