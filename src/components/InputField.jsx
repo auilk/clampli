@@ -17,11 +17,11 @@ function InputField({label = "label", placeholder = "placeholder", width = 20, t
 
     return (
         <div className="flex flex-col relative">
-            <label className="pl-2 pr-2 text-lg text-white absolute -top-3.5 left-2 bg-graphite-900" htmlFor="input"
+            <label className="pl-2 pr-2 text-lg text-white absolute -top-3.5 left-2 bg-graphite-900" htmlFor={label}
                 style={{
                     color: borderColor
                 }}>{label}</label>
-            <input className="pl-3 pr-3 pt-3 pb-3 border-2 rounded-md outline-0 text-6xl text-white" id="input" type="text" value={value} placeholder={placeholder} onChange={(event) => SetValue(event.target.value)}
+            <input className="pl-3 pr-3 pt-3 pb-3 border-2 rounded-md outline-0 text-6xl text-white" id={label} type="text" value={value} placeholder={placeholder} onChange={(event) => SetValue(event.target.value)}
                 style={{
                     width: `${width}rem`,
                     fontSize: `${textSize}rem`,

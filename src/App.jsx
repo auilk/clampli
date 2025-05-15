@@ -4,6 +4,7 @@ import GitIcon from "./assets/icons/github-icon.png";
 import ClampliLogo from "./assets/logos/clampli-logo.png";
 import DottedBG from "./components/DottedBG";
 import UnitSelector from "./components/UnitSelector";
+import Form from "./components/Form";
 
 
 function App()
@@ -19,7 +20,8 @@ function App()
           }}></div>
       </NavBar>
       <DottedBG></DottedBG> */}
-      <UnitSelector></UnitSelector>
+      {/* <UnitSelector></UnitSelector> */}
+      <Form></Form>
     </div>
   );
 }
