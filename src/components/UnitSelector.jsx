@@ -5,12 +5,12 @@ function UnitSelector()
     const [selected, SetSelected] = useState("px");
 
     return (
-        <div className="w-full pt-1 pb-1 flex justify-between gap-1 bg-white">
-            <button className={`${selected === "px" ? "flex-grow" : "auto"} pl-5 pr-5 flex justify-start bg-red-500 transition-all`} onClick={() => SetSelected("px")}>
-                <span className="text-2xl font-bold">PX</span>
+        <div className="w-full flex justify-between border-4 border-white">
+            <button className={`${selected === "px" ? "pl-5 flex-grow bg-white text-graphite-900" : "pr-2 text-white [writing-mode:sideways-lr]"} w-fit pl-2 flex justify-start transition-all`} onClick={() => SetSelected("px")}>
+                <span className={`${selected === "px" ? "text-2xl" : "text-xl"} h-full font-bold`}>PX</span>
             </button>
-            <button className={`${selected === "rem" ? "flex-grow" : "auto"} pl-5 pr-5 flex justify-end bg-green-500 transition-all`} onClick={() => SetSelected("rem")}>
-                <span className="text-2xl font-bold">REM</span>
+            <button className={`${selected === "rem" ? "pr-5 flex-grow bg-white text-graphite-900" : "pr-3 text-white [writing-mode:sideways-rl]"} w-fit pl-3 flex justify-end transition-all`} onClick={() => SetSelected("rem")}>
+                <span className={`${selected === "rem" ? "text-2xl" : "text-sm"} h-full font-bold`}>REM</span>
             </button>
         </div>
     );
