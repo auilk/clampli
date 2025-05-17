@@ -75,7 +75,7 @@ function DottedBG()
 
             void main()
             {
-                vec2 uv = vTexCoord * 2.0;
+                vec2 uv = vTexCoord * 5.0;
                 if (uResolution.x < uResolution.y) 
                 {
                     uv.y *= uResolution.y / uResolution.x;
@@ -88,13 +88,11 @@ function DottedBG()
                 float circleDensity = 4.5;
 
                 float zTiling = 5.0;
-                float z = mod(uTime * 0.5, zTiling);
+                float z = mod(uTime * 0.3, zTiling);
                 float noise = Noise(vec3(floor(uv * circleDensity) / circleDensity, z), zTiling);
 
-                float radius = noise * 0.5 + 0.5;
-                float circle = step(length(fract(uv * circleDensity) * circleDensity - 1.0) - noise, 0.0);
+                float circle = step(length(fract(uv * circleDensity) * 2.0 - 1.0) - max(0.1, noise), 0.0);
 
-                
                 FragColor = vec4(vec3(circle), 1.0);
             }`;
 
