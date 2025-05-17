@@ -41,11 +41,13 @@ function ClampFormat({fontSize = 1, horizontalPadding = 2.5})
             </div>
 
             <svg
-                className="h-full relative transition-transform duration-500"
+                className="w-6 h-6 relative transition-transform duration-500"
                 viewBox="0 0 100 100"
                 fill="#0E0E0E"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
+                    width: `${fontSize * 1.5}rem`,
+                    height: `${fontSize * 1.5}rem`,
                     transform: format === "tailwind" ? "rotateX(0deg)" : "rotateX(-180deg)",
                 }}
             >
