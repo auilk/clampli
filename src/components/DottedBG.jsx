@@ -207,8 +207,12 @@ function DottedBG()
 
     return (
         <div className="min-h-0 p-5 flex-1">
-            <canvas ref={canvas} className="block w-full h-full border-2 rounded-xl border-white"></canvas>
+            <canvas
+                ref={canvas}
+                className="block w-full h-full border-2 rounded-xl border-white"
+            ></canvas>
         </div>
+
     );
 }
 

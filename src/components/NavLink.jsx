@@ -24,18 +24,30 @@ function NavLink({position = "center", link, text = "click", textColor = "white"
     }
 
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center items-center cursor-pointer">
-            <div className="rounded-full bg-contain bg-center bg-no-repeat"
+        <a 
+            className="flex flex-col justify-center items-center cursor-pointer" 
+            href={link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+        >
+            <div
+                className="rounded-full bg-contain bg-center bg-no-repeat"
                 style={{
                     width: `${1.25 * iconScale}rem`,
                     height: `${1.25 * iconScale}rem`,
                     backgroundImage: `url(${icon})`,
-                }}></div>
-            <p className="font-bold"
+                }}
+            ></div>
+
+            <p 
+                className="font-bold"
                 style={{
                     color: textColor,
                     fontSize: `${fontSize}rem`
-                }}>{text}</p>
+                }}
+            >
+                {text}
+            </p>
         </a>
     );
 }
