@@ -13,7 +13,6 @@ function App()
   return (
     <div className="flex flex-col h-dvh">
       <ClampResult></ClampResult>
-      <ClampFormat></ClampFormat>
     </div>
   );
 }
