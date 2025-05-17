@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-function ClampFormat({fontSize = 1, horizontalPadding = 2.5})
+function ClampFormat({fontSize = 1, horizontalPadding = 1})
 {
     const [format, SetFormat] = useState("css");
 
     return (
         <button
-            className="w-fit h-fit flex bg-white"
+            className="w-fit h-fit bg-white"
             onClick={() => SetFormat(format === "css" ? "tailwind" : "css")}
         >
             <div
-                className="w-fit h-fit text-graphite-900 font-bold leading-normal relative"
+                className="w-fit h-fit [writing-mode:sideways-rl] text-graphite-900 font-bold leading-normal relative"
                 style={{
-                    padding: `0px ${horizontalPadding}rem`,
+                    padding: `${horizontalPadding}rem 0px`,
                     fontSize: `${fontSize}rem`,
                     perspective: `${fontSize * 100}px`
                 }}
@@ -22,7 +22,7 @@ function ClampFormat({fontSize = 1, horizontalPadding = 2.5})
                 <span
                     className="absolute left-1/2 top-1/2 -translate-1/2 backface-hidden transition-transform duration-500"
                     style={{
-                        transform: format === "tailwind" ? "rotateX(180deg)" : "rotateX(0deg)",
+                        transform: format === "tailwind" ? "rotateY(180deg)" : "rotateY(0deg)",
                         transformOrigin: `center center ${-10 * fontSize}px`
                     }}
                 >
@@ -32,7 +32,7 @@ function ClampFormat({fontSize = 1, horizontalPadding = 2.5})
                 <span
                     className="absolute left-1/2 top-1/2 -translate-1/2 backface-hidden transition-transform duration-500"
                     style={{
-                        transform: format === "tailwind" ? "rotateX(0deg)" : "rotateX(-180deg)",
+                        transform: format === "tailwind" ? "rotateY(0deg)" : "rotateY(-180deg)",
                         transformOrigin: `center center ${-10 * fontSize}px` 
                     }}
                 >
@@ -48,11 +48,11 @@ function ClampFormat({fontSize = 1, horizontalPadding = 2.5})
                 style={{
                     width: `${fontSize * 1.5}rem`,
                     height: `${fontSize * 1.5}rem`,
-                    transform: format === "tailwind" ? "rotateX(0deg)" : "rotateX(-180deg)",
+                    transform: format === "tailwind" ? "rotateY(0deg)" : "rotateY(-180deg)",
                 }}
             >
                 <path
-                    d="M20 60 L50 32 80 60 Z"
+                    d="M20 50 L70 20 70 80 Z"
                     stroke="#0E0E0E"
                     strokeWidth="8"
                     strokeLinecap="round"
