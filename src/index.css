@@ -14,15 +14,15 @@
 }
 
 @theme {
-  --color-graphite-100: #CCCCCC;
-  --color-graphite-200: #A9A9A9;
-  --color-graphite-300: #888888;
-  --color-graphite-400: #747474;
-  --color-graphite-500: #606060;
-  --color-graphite-600: #4B4B4B;
-  --color-graphite-700: #373737;
-  --color-graphite-800: #141414;
-  --color-graphite-900: #0E0E0E;
+  --color-graphite-100: #323232;
+  --color-graphite-200: #2D2D2D;
+  --color-graphite-300: #282828;
+  --color-graphite-400: #232323;
+  --color-graphite-500: #1E1E1E;
+  --color-graphite-600: #191919;
+  --color-graphite-700: #141414;
+  --color-graphite-800: #0F0F0F;
+  --color-graphite-900: #0A0A0A;
 }
 
 @layer utilities {
