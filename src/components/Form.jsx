@@ -1,16 +1,16 @@
 import InputField from "./InputField.jsx"
 import UnitSelector from "./UnitSelector.jsx";
 
-function Form()
+function Form({className})
 {
     return(
         <form 
-            className="w-fit h-fit" 
+            className={`w-fit h-fit ${className}`}
             onSubmit={(event) => event.preventDefault()}
         >
             <UnitSelector fontSize={0.8}></UnitSelector>
 
-            <div className="pl-10 pr-10 pt-30 pb-30 flex flex-col gap-25 border-[2px] rounded-b-md border-white bg-graphite-900">
+            <div className="pl-10 pr-10 pt-25 pb-25 flex flex-col gap-20 border-[2px] rounded-b-md border-white bg-graphite-900">
                 <InputField 
                     label="Min Viewport size" 
                     placeholder="Enter your value..."

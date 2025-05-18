@@ -4,12 +4,12 @@ import UnitSelector from "./UnitSelector";
 function ClampResult()
 {
     return(
-        <div className="w-fit">
+        <div className="w-full">
             <UnitSelector fontSize={0.8}></UnitSelector>
 
-            <div className="w-fit h-fit p-10 flex border-2 rounded-b-md border-white bg-graphite-900">
-                <div className="pl-10 pr-5 flex items-center gap-5 text-white border-1 rounded-l-md bg-graphite-800">
-                    <p className="flex items-center">EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)</p>
+            <div className="w-full h-fit p-10 flex border-2 rounded-b-md border-white bg-graphite-900">
+                <div className="w-full pl-10 pr-5 flex items-center gap-5 text-white border-1 rounded-l-md bg-graphite-800">
+                    <p className="flex-1 flex justify-center items-center">EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)</p>
 
                     <svg
                         className="cursor-pointer"

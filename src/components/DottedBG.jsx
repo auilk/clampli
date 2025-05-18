@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function DottedBG()
+function DottedBG({className, children})
 {
     const canvas = useRef(null);
     const animationRequest = useRef(null);
@@ -20,7 +20,9 @@ function DottedBG()
 
         const vertexShaderSource = 
         `   #version 300 es
-            precision lowp float;
+            #pragma vscode_glsllint_stage : vert
+
+            precision mediump float;
 
             in vec3 aPos;
             in vec2 aTexCoord;
@@ -36,7 +38,9 @@ function DottedBG()
 
         const fragmentShaderSource = 
         `   #version 300 es
-            precision lowp float;
+            #pragma vscode_glsllint_stage : frag
+
+            precision mediump float;
             
             in vec2 vTexCoord;
             
@@ -75,7 +79,7 @@ function DottedBG()
 
             void main()
             {
-                vec2 uv = vTexCoord * 5.0;
+                vec2 uv = vTexCoord * 2.0;
                 if (uResolution.x < uResolution.y) 
                 {
                     uv.y *= uResolution.y / uResolution.x;
@@ -85,13 +89,13 @@ function DottedBG()
                     uv.x *= uResolution.x / uResolution.y;
                 }
 
-                float circleDensity = 4.5;
+                float circleDensity = 10.0;
 
                 float zTiling = 5.0;
-                float z = mod(uTime * 0.3, zTiling);
+                float z = mod(uTime * 0.1, zTiling);
                 float noise = Noise(vec3(floor(uv * circleDensity) / circleDensity, z), zTiling);
 
-                float circle = step(length(fract(uv * circleDensity) * 2.0 - 1.0) - max(0.1, noise), 0.0);
+                float circle = step(length(fract(uv * circleDensity) * 2.0 - 1.0), min(noise + 0.1, 0.2));
 
                 FragColor = vec4(vec3(circle), 1.0);
             }`;
@@ -204,11 +208,13 @@ function DottedBG()
 
 
     return (
-        <div className="min-h-0 p-5 flex-1">
+        <div className={`min-h-0 p-5 flex-1 relative ${className}`}>
             <canvas
+                className="block w-full h-full border-2 rounded-xl border-white absolute top-0 right-0 -z-10"
                 ref={canvas}
-                className="block w-full h-full border-2 rounded-xl border-white"
             ></canvas>
+
+            {children}
         </div>
 
     );

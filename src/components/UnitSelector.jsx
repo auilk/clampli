@@ -9,7 +9,7 @@ function UnitSelector({fontSize = 1})
             className="w-full flex justify-between border-t-[2px] border-l-[2px] border-r-[2px] rounded-t-md border-white"
         >
             <button 
-                className={`${selected === "px" ? "flex-grow bg-white text-graphite-900" : "pr-3 text-white"} w-fit pl-3 flex justify-start transition-all`} 
+                className={`${selected === "px" ? "flex-grow text-graphite-900 bg-white" : "pr-3 text-white bg-graphite-900"} w-fit pl-3 flex justify-start rounded-tl-sm transition-all`} 
                 onClick={() => SetSelected("px")}
             >
                 <span 
@@ -24,7 +24,7 @@ function UnitSelector({fontSize = 1})
             </button>
 
             <button 
-                className={`${selected === "rem" ? "pr-5 flex-grow bg-white text-graphite-900" : "pr-3 text-white"} w-fit pl-3 flex justify-end transition-all`} 
+                className={`${selected === "rem" ? "pr-5 flex-grow text-graphite-900 bg-white" : "pr-3 text-white bg-graphite-900"} w-fit pl-3 flex justify-end rounded-tr-sm transition-all`} 
                 onClick={() => SetSelected("rem")}
             >
                 <span 
