@@ -45,4 +45,8 @@
   .text-graphite-700 { color: var(--color-graphite-700); }
   .text-graphite-800 { color: var(--color-graphite-800); }
   .text-graphite-900 { color: var(--color-graphite-900); }
+
+  .shadow-3xl {
+    box-shadow: 20px 20px 20px 20px;
+  }
 }
