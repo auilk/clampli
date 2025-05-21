@@ -7,8 +7,8 @@ function ClampResult()
         <div className="w-full">
             <UnitSelector fontSize={0.8}></UnitSelector>
 
-            <div className="w-full h-fit p-10 flex border-2 rounded-b-md border-white bg-graphite-900">
-                <div className="w-full pl-10 pr-5 flex items-center gap-5 text-white border-1 rounded-l-md bg-graphite-800">
+            <div className="w-full h-fit p-10 flex border-[0px_2px_2px_2px] border-white bg-graphite-900">
+                <div className="w-full pl-10 pr-5 flex items-center gap-5 text-white border-2">
                     <p className="flex-1 flex justify-center items-center">EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)</p>
 
                     <svg
@@ -25,7 +25,7 @@ function ClampResult()
                     </svg>
                 </div>
 
-                <ClampFormat></ClampFormat>
+                <ClampFormat fontSize={1.2}></ClampFormat>
             </div>
         </div>
     );
