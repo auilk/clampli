@@ -57,11 +57,11 @@ function DottedBG({className, children})
             
             float Noise(vec3 point, float zTiling)
             {
-                vec3 grid = fract(point);
                 vec3 id = floor(point);
+                vec3 grid = fract(point);
                 
-                vec3 interp = smoothstep(0.0, 1.0, grid);
-                
+                vec3 interp = grid * grid * (3.0 - 2.0 * grid);
+
                 float a = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 0.0, mod(id.z + 0.0, zTiling))), grid - vec3(0.0, 0.0, 0.0));
                 float b = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 0.0, mod(id.z + 0.0, zTiling))), grid - vec3(1.0, 0.0, 0.0));
                 float c = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 1.0, mod(id.z + 0.0, zTiling))), grid - vec3(0.0, 1.0, 0.0));
@@ -71,15 +71,16 @@ function DottedBG({className, children})
                 float f = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 0.0, mod(id.z + 1.0, zTiling))), grid - vec3(1.0, 0.0, 1.0));
                 float g = dot(RandomUnitVec(vec3(id.x + 0.0, id.y + 1.0, mod(id.z + 1.0, zTiling))), grid - vec3(0.0, 1.0, 1.0));
                 float h = dot(RandomUnitVec(vec3(id.x + 1.0, id.y + 1.0, mod(id.z + 1.0, zTiling))), grid - vec3(1.0, 1.0, 1.0));
-                
-                float noise = mix(mix(mix(a, b, interp.x), mix(c, d, interp.x), interp.y), mix(mix(e, f, interp.x), mix(g, h, interp.x), interp.y), interp.z);
 
-                return noise;
+                float lerp0 = mix(mix(a, b, interp.x), mix(c, d, interp.x), interp.y);
+                float lerp1 = mix(mix(e, f, interp.x), mix(g, h, interp.x), interp.y);
+
+                return mix(lerp0, lerp1, interp.z);
             }
 
             void main()
             {
-                vec2 uv = vTexCoord * 2.0;
+                vec2 uv = vTexCoord * 0.5;
                 if (uResolution.x < uResolution.y) 
                 {
                     uv.y *= uResolution.y / uResolution.x;
@@ -89,13 +90,12 @@ function DottedBG({className, children})
                     uv.x *= uResolution.x / uResolution.y;
                 }
 
-                float circleDensity = 10.0;
+                int zTiling = 4;
+                float density = 4.0;
+                float z = mod(uTime * 0.1, float(zTiling));
+                float noise = Noise(vec3(floor(uv * density) / density, z), float(zTiling));
 
-                float zTiling = 5.0;
-                float z = mod(uTime * 0.1, zTiling);
-                float noise = Noise(vec3(floor(uv * circleDensity) / circleDensity, z), zTiling);
-
-                float circle = step(length(fract(uv * circleDensity) * 2.0 - 1.0), min(noise + 0.1, 0.2));
+                float circle = step(length(fract(uv * density) * 2.0 - 1.0), min(noise + 0.1, 0.2));
 
                 FragColor = vec4(vec3(circle), 1.0);
             }`;
@@ -208,15 +208,10 @@ function DottedBG({className, children})
 
 
     return (
-        <div className={`min-h-0 p-5 flex-1 relative ${className}`}>
-            <canvas
-                className="block w-full h-full border-2 rounded-xl border-white absolute top-0 right-0 -z-10"
-                ref={canvas}
-            ></canvas>
-
-            {children}
-        </div>
-
+        <canvas
+            className="w-full h-full -z-10"
+            ref={canvas}
+        ></canvas>
     );
 }
 
