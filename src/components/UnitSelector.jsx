@@ -8,7 +8,7 @@ function UnitSelector({fontSize = 2})
     return (
         <div className="flex justify-between border-[2px_0px_2px_2px] border-white">
             <button 
-                className="flex font-bold text-white border-r-1 relative overflow-hidden transition-all duration-500 hover:bg-graphite-500"
+                className="flex font-bold text-white border-r-1 relative overflow-hidden transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
                 style={{
                     padding: `${1.875 * fontSize}rem`,
                     fontSize: `${fontSize}rem`,
@@ -46,7 +46,7 @@ function UnitSelector({fontSize = 2})
             </button>
 
             <button 
-                className="flex font-bold text-white border-r-1 relative overflow-hidden transition-all duration-500 hover:bg-graphite-500"
+                className="flex font-bold text-white border-r-1 relative overflow-hidden transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
                 style={{
                     padding: `${1.875 * fontSize}rem`,
                     fontSize: `${fontSize}rem`,
