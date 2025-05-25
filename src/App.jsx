@@ -3,12 +3,8 @@ import NavLink from "./components/NavLink";
 import GitIcon from "./assets/icons/github-icon.png";
 import ClampliLogo from "./assets/logos/clampli-logo.png";
 import DottedBG from "./components/DottedBG";
-import UnitSelector from "./components/UnitSelector";
 import Form from "./components/Form";
-import ClampFormat from "./components/ClampFormat";
 import ClampResult from "./components/ClampResult";
-import UnitSelector from "./components/UnitSelector";
-import InputField from "./components/InputField";
 
 
 function App()
@@ -61,6 +57,16 @@ function App()
           <DottedBG></DottedBG>
         </div>
       </main>
+
+      <footer className="min-h-10 h-10 flex border-t-2 border-white">
+        <button className="w-full h-full text-xl text-white font-bold flex items-center justify-center cursor-pointer bg-black hover:bg-graphite-500 transition-all duration-500">
+          <span className="px-10">⮝</span>
+          
+          <span>How It Works</span>
+          
+          <span className="px-10">⮝</span> 
+        </button>
+      </footer>
     </>
   );
 }
