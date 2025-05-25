@@ -26,7 +26,7 @@ function TextOutline({className, text, fontSize, outlineColor, outlineWidth})
 
     return(
         <svg
-            className={`pb-1 pt-1 ${className}`}
+            className={`py-1 ${className}`}
             ref={svgRef}
             xmlns="http://www.w3.org/2000/svg"
         >

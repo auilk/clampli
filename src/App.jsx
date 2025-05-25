@@ -22,7 +22,7 @@ function App()
           ></NavLink>
 
           <p 
-            className="text-white text-lg" 
+            className="text-lg text-white" 
             position="center"
           >
             Fluid type & layout—no math, just magic
@@ -38,7 +38,7 @@ function App()
         </NavBar>
       </header>
 
-      <main className="min-h-0 flex flex-grow">
+      <main className="flex flex-grow min-h-0">
         <div className="w-full h-full flex-[5%] border-r-2 border-white">
           <DottedBG></DottedBG>
         </div>
@@ -58,8 +58,8 @@ function App()
         </div>
       </main>
 
-      <footer className="min-h-10 h-10 flex border-t-2 border-white">
-        <button className="w-full h-full text-xl text-white font-bold flex items-center justify-center cursor-pointer bg-black hover:bg-graphite-500 transition-all duration-500">
+      <footer className="flex h-10 border-t-2 border-white min-h-10">
+        <button className="flex justify-center items-center w-full h-full text-xl font-bold text-white bg-black transition-all duration-500 cursor-pointer hover:bg-graphite-500">
           <span className="px-10">⮝</span>
           
           <span>How It Works</span>

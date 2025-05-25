@@ -17,7 +17,7 @@ function InputField({label = "label", width = 20, fontSize = 1, textColor, borde
     const [isFocused, SetIsFocused] = useState(false);
 
     return (
-        <div className="flex flex-col relative">
+        <div className="flex relative flex-col">
             <label 
                 className="pl-2 pr-2 text-lg text-white bg-graphite-900 absolute top-1/2 left-1 -translate-y-1/2 transition-all cursor-text"
                 htmlFor={label}
@@ -31,7 +31,7 @@ function InputField({label = "label", width = 20, fontSize = 1, textColor, borde
             </label>
             
             <input
-                className="pl-3 pr-3 pt-3 pb-3 border-2 outline-0 text-6xl text-white" 
+                className="pt-3 pr-3 pb-3 pl-3 text-6xl text-white border-2 outline-0" 
                 id={label} 
                 type="text" 
                 value={value} 

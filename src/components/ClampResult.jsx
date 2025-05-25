@@ -8,8 +8,8 @@ function ClampResult()
             <UnitSelector fontSize={0.8}></UnitSelector>
 
             <div className="w-full h-fit p-10 flex border-[0px_2px_2px_2px] border-white bg-graphite-900">
-                <div className="w-full pl-10 pr-5 flex items-center gap-5 text-white border-2">
-                    <p className="flex-1 flex justify-center items-center">EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)</p>
+                <div className="flex gap-5 items-center pr-5 pl-10 w-full text-white border-2">
+                    <p className="flex flex-1 justify-center items-center">EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)</p>
 
                     <svg
                         className="cursor-pointer"

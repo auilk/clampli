@@ -20,7 +20,7 @@ function ClampFormat({fontSize = 1, horizontalPadding = 1})
                 <span className="opacity-0">TAILWIND</span>
 
                 <span
-                    className="absolute left-1/2 top-1/2 -translate-1/2 backface-hidden transition-transform duration-500"
+                    className="absolute top-1/2 left-1/2 transition-transform duration-500 -translate-1/2 backface-hidden"
                     style={{
                         transform: format === "tailwind" ? "rotateY(180deg)" : "rotateY(0deg)",
                         transformOrigin: `center center ${-10 * fontSize}px`
@@ -30,7 +30,7 @@ function ClampFormat({fontSize = 1, horizontalPadding = 1})
                 </span>
 
                 <span
-                    className="absolute left-1/2 top-1/2 -translate-1/2 backface-hidden transition-transform duration-500"
+                    className="absolute top-1/2 left-1/2 transition-transform duration-500 -translate-1/2 backface-hidden"
                     style={{
                         transform: format === "tailwind" ? "rotateY(0deg)" : "rotateY(-180deg)",
                         transformOrigin: `center center ${-10 * fontSize}px` 
@@ -41,7 +41,7 @@ function ClampFormat({fontSize = 1, horizontalPadding = 1})
             </div>
 
             <svg
-                className="w-6 h-6 relative transition-transform duration-500"
+                className="relative w-6 h-6 transition-transform duration-500"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

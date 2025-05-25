@@ -31,7 +31,7 @@ function NavLink({position = "center", link, text = "click", textColor = "white"
             rel="noopener noreferrer"
         >
             <div
-                className="rounded-full bg-contain bg-center bg-no-repeat"
+                className="bg-center bg-no-repeat bg-contain rounded-full"
                 style={{
                     width: `${1.25 * iconScale}rem`,
                     height: `${1.25 * iconScale}rem`,

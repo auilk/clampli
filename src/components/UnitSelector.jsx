@@ -8,7 +8,7 @@ function UnitSelector({fontSize = 2})
     return (
         <div className="flex justify-between border-[2px_0px_2px_2px] border-white">
             <button 
-                className="flex font-bold text-white border-r-1 relative overflow-hidden transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
+                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
                 style={{
                     padding: `${1.875 * fontSize}rem`,
                     fontSize: `${fontSize}rem`,
@@ -17,7 +17,7 @@ function UnitSelector({fontSize = 2})
                 onClick={() => SetSelected("px")}
             >
                 <span 
-                    className="absolute transition-all z-1 duration-500 pointer-events-none"
+                    className="absolute transition-all duration-500 pointer-events-none z-1"
                     style={{
                         paddingRight: selected === "px" ? "0.75rem" : "0rem",
                         top: selected === "px" ? "0" : "50%",
@@ -29,7 +29,7 @@ function UnitSelector({fontSize = 2})
                 </span>
 
                 <div
-                    className="w-fit h-fit absolute -left-7 -bottom-2 transition-all"
+                    className="absolute -bottom-2 -left-7 transition-all w-fit h-fit"
                     style={{
                         opacity: selected === "px" ? "1" : "0",
                         maskImage: 'linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0) 100%)',
@@ -46,7 +46,7 @@ function UnitSelector({fontSize = 2})
             </button>
 
             <button 
-                className="flex font-bold text-white border-r-1 relative overflow-hidden transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
+                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
                 style={{
                     padding: `${1.875 * fontSize}rem`,
                     fontSize: `${fontSize}rem`,
@@ -55,7 +55,7 @@ function UnitSelector({fontSize = 2})
                 onClick={() => SetSelected("rem")}
             >
                 <span 
-                    className="absolute transition-all z-1 duration-500 pointer-events-none"
+                    className="absolute transition-all duration-500 pointer-events-none z-1"
                     style={{
                         top: selected === "rem" ? "0" : "50%",
                         left: selected === "rem" ? "10px" : "50%",
@@ -66,7 +66,7 @@ function UnitSelector({fontSize = 2})
                 </span>
 
                 <div
-                    className="w-fit h-fit absolute -right-6 -bottom-2 transition-all"
+                    className="absolute -bottom-2 -right-6 transition-all w-fit h-fit"
                     style={{
                         opacity: selected === "rem" ? "1" : "0",
                         maskImage: 'linear-gradient(to left, black 0%, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0) 100%)',
