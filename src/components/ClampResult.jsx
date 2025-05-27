@@ -1,7 +1,7 @@
 import ClampFormat from "./ClampFormat";
 import UnitSelector from "./UnitSelector";
 
-function ClampResult()
+function ClampResult({fontSize = 1})
 {
     return(
         <div className="w-full">
@@ -9,7 +9,14 @@ function ClampResult()
 
             <div className="w-full h-fit p-10 flex border-[0px_2px_2px_2px] border-white bg-graphite-900">
                 <div className="flex gap-5 items-center pr-5 pl-10 w-full text-white border-2">
-                    <p className="flex flex-1 justify-center items-center">EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)</p>
+                    <p 
+                        className="flex flex-1 justify-center items-center"
+                        style={{
+                            fontSize:`${fontSize}rem`
+                        }}
+                    >
+                        EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)
+                    </p>
 
                     <svg
                         className="cursor-pointer"

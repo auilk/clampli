@@ -80,7 +80,7 @@ function DottedBG({className, children})
 
             void main()
             {
-                vec2 uv = vTexCoord * 0.5;
+                vec2 uv = vTexCoord * 0.8;
                 if (uResolution.x < uResolution.y) 
                 {
                     uv.y *= uResolution.y / uResolution.x;
@@ -92,7 +92,7 @@ function DottedBG({className, children})
 
                 int zTiling = 4;
                 float density = 4.0;
-                float z = mod(uTime * 0.1, float(zTiling));
+                float z = mod(uTime * 0.3, float(zTiling));
                 float noise = Noise(vec3(floor(uv * density) / density, z), float(zTiling));
 
                 float circle = step(length(fract(uv * density) * 2.0 - 1.0), min(noise + 0.1, 0.2));

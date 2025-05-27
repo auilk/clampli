@@ -1,7 +1,7 @@
 import InputField from "./InputField.jsx"
 import UnitSelector from "./UnitSelector.jsx";
 
-function Form({className})
+function Form({className, label01, label02})
 {
     return(
         <form 
@@ -12,11 +12,11 @@ function Form({className})
 
             <div className="px-10 py-25 flex flex-col gap-20 border-[0px_2px_2px_2px] border-white bg-graphite-900">
                 <InputField 
-                    label="Enter Min Viewport size" 
+                    label={label01}
                 ></InputField>
 
                 <InputField 
-                    label="Enter Max Viewport size" 
+                    label={label02}
                 ></InputField>
             </div>
         </form>
