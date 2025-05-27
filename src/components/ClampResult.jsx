@@ -1,4 +1,4 @@
-import ClampFormat from "./ClampFormat";
+import Toggle from "./Toggle";
 import UnitSelector from "./UnitSelector";
 
 function ClampResult({fontSize = 1})
@@ -32,7 +32,12 @@ function ClampResult({fontSize = 1})
                     </svg>
                 </div>
 
-                <ClampFormat fontSize={1.2}></ClampFormat>
+                <Toggle 
+                    fontSize={1.2}
+                    firstOption="CSS"
+                    secondOption="TAILWIND"
+                    vertical={true}
+                ></Toggle>
             </div>
         </div>
     );

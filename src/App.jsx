@@ -6,6 +6,7 @@ import ClampliLogo from "./assets/logos/clampli-logo.png";
 import DottedBG from "./components/DottedBG";
 import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
+import Toggle from "./components/Toggle";
 
 
 function App()
@@ -73,14 +74,14 @@ function App()
         </div>
       </main>
 
-      <footer className="flex h-10 border-t-2 border-white min-h-10">
-        <button className="flex justify-center items-center w-full h-full text-xl font-bold text-white bg-black transition-all duration-500 cursor-pointer hover:bg-graphite-500">
-          <span className="px-10">⮝</span>
-          
-          <span>How It Works</span>
-          
-          <span className="px-10">⮝</span> 
-        </button>
+      <footer className="flex relative h-fit min-h-10">
+        <Toggle
+          firstOption="How It Works"
+          secondOption="Calculator"
+          padding={0}
+          vertical={false}
+          fullWidth={true}
+        ></Toggle>
       </footer>
     </>
   );
