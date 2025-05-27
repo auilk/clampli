@@ -1,6 +1,7 @@
 import { NavBar } from "./components/NavBar";
 import NavLink from "./components/NavLink";
 import GitIcon from "./assets/icons/github-icon.png";
+import LinkedinIcon from "./assets/icons/linkedin-icon.png";
 import ClampliLogo from "./assets/logos/clampli-logo.png";
 import DottedBG from "./components/DottedBG";
 import Form from "./components/Form";
@@ -21,6 +22,14 @@ function App()
             icon={GitIcon}
           ></NavLink>
 
+          <NavLink 
+            position="right" 
+            link="https://github.com/auilk" 
+            text="LinkedIn" 
+            fontSize={0.6} 
+            icon={LinkedinIcon}
+          ></NavLink>
+
           <p 
             className="text-lg text-white" 
             position="center"
@@ -29,7 +38,7 @@ function App()
           </p>
 
           <div 
-            className="w-15 mr-1.5 h-10 scale-160 bg-cover bg-center bg-no-repeat"
+            className="min-w-16 mr-1.5 h-10 scale-160 bg-cover bg-center bg-no-repeat"
             position="left"
             style={{
               backgroundImage: `url(${ClampliLogo})`,
@@ -45,12 +54,18 @@ function App()
         
         <div className="flex flex-col justify-around h-full px-60 flex-[90%]">
           <div className="flex justify-between">
-            <Form></Form>
+            <Form 
+              label01="Min Font Size" 
+              label02="Max Font Size"
+            ></Form>
 
-            <Form></Form>
+            <Form 
+              label01="Min Viewport Size" 
+              label02="Max Viewport Size"
+            ></Form>
           </div>
 
-          <ClampResult></ClampResult>
+          <ClampResult fontSize={1.4}></ClampResult>
         </div>
 
         <div className="w-full h-full flex-[5%] border-l-2 border-white">
