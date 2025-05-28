@@ -7,10 +7,14 @@ import DottedBG from "./components/DottedBG";
 import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
 import Toggle from "./components/Toggle";
+import useToggleStore from "./store/toggle-store";
 
 
 function App()
 {
+  const slide = useToggleStore((state) => (state.slide));
+  const setSlide = useToggleStore((state) => (state.setSlide));
+
   return (
     <>
       <header className="flex flex-col">
@@ -77,6 +81,8 @@ function App()
 
         <section className="absolute -bottom-0 w-full z-1">
           <Toggle
+            value={slide}
+            onToggle={setSlide}
             firstOption="How It Works"
             secondOption="Calculator"
             padding={0}

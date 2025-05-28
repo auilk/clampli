@@ -1,8 +1,12 @@
+import useToggleStore from "../store/toggle-store";
 import Toggle from "./Toggle";
 import UnitSelector from "./UnitSelector";
 
 function ClampResult({fontSize = 1})
 {
+    const format = useToggleStore((state) => (state.format));
+    const setFormat = useToggleStore((state) => (state.setFormat));
+
     return(
         <div className="w-full">
             <UnitSelector fontSize={0.8}></UnitSelector>
@@ -32,7 +36,9 @@ function ClampResult({fontSize = 1})
                     </svg>
                 </div>
 
-                <Toggle 
+                <Toggle
+                    value={format}
+                    onToggle={setFormat}
                     fontSize={1.2}
                     firstOption="CSS"
                     secondOption="TAILWIND"

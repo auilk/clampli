@@ -2,17 +2,11 @@ import { create } from "zustand";
 
 const useToggleStore = create((set) =>
 ({
-    format: "css",
-    slide: false,
+    format: "CSS",
+    slide: "How It Works",
 
-    setFormat: () => 
-        set((state) => 
-        ({ 
-            format: state.format === "css" ? "tailwind" : "css" 
-        })),
-    setSlide: () => 
-        set((state) => 
-        ({
-            silde: !state.slide
-        }))
+    setFormat: (format) => set({ format : format }),
+    setSlide: (slide) => set({ slide: slide })
 }));
+
+export default useToggleStore;
