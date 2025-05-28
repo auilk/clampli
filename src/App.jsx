@@ -48,41 +48,43 @@ function App()
         </NavBar>
       </header>
 
-      <main className="flex flex-grow min-h-0">
-        <div className="w-full h-full flex-[5%] border-r-2 border-white">
-          <DottedBG></DottedBG>
-        </div>
-        
-        <div className="flex flex-col justify-around h-full px-60 flex-[90%]">
-          <div className="flex justify-between">
-            <Form 
-              label01="Min Font Size" 
-              label02="Max Font Size"
-            ></Form>
+      <main className="flex relative flex-col flex-grow min-h-0">
+        <section className="flex flex-grow pb-11 min-h-0">
+          <div className="w-full h-full flex-[5%] border-r-2 border-white">
+            <DottedBG></DottedBG>
+          </div>
+          
+          <div className="flex flex-col justify-around h-full px-60 flex-[90%]">
+            <div className="flex justify-between">
+              <Form 
+                label01="Min Font Size" 
+                label02="Max Font Size"
+              ></Form>
 
-            <Form 
-              label01="Min Viewport Size" 
-              label02="Max Viewport Size"
-            ></Form>
+              <Form 
+                label01="Min Viewport Size" 
+                label02="Max Viewport Size"
+              ></Form>
+            </div>
+
+            <ClampResult fontSize={1.4}></ClampResult>
           </div>
 
-          <ClampResult fontSize={1.4}></ClampResult>
-        </div>
+          <div className="w-full h-full flex-[5%] border-l-2 border-white">
+            <DottedBG></DottedBG>
+          </div>
+        </section>
 
-        <div className="w-full h-full flex-[5%] border-l-2 border-white">
-          <DottedBG></DottedBG>
-        </div>
+        <section className="absolute -bottom-0 w-full z-1">
+          <Toggle
+            firstOption="How It Works"
+            secondOption="Calculator"
+            padding={0}
+            vertical={false}
+            fullWidth={true}
+          ></Toggle>
+        </section>
       </main>
-
-      <footer className="flex relative h-fit min-h-10">
-        <Toggle
-          firstOption="How It Works"
-          secondOption="Calculator"
-          padding={0}
-          vertical={false}
-          fullWidth={true}
-        ></Toggle>
-      </footer>
     </>
   );
 }
