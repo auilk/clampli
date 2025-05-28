@@ -6,16 +6,11 @@ import ClampliLogo from "./assets/logos/clampli-logo.png";
 import DottedBG from "./components/DottedBG";
 import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
-import Toggle from "./components/Toggle";
-import useToggleStore from "./store/toggle-store";
 import Slide from "./components/Slide";
 
 
 function App()
 {
-  const slide = useToggleStore((state) => (state.slide));
-  const setSlide = useToggleStore((state) => (state.setSlide));
-
   return (
     <>
       <header className="flex flex-col">

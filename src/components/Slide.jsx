@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import useToggleStore from "../store/toggle-store";
 import Toggle from "./Toggle";
+import DottedBG from "./DottedBG";
 
 function Slide()
 {
@@ -49,7 +50,7 @@ function Slide()
     return(
         <section 
             ref={slideRef}
-            className="absolute w-full z-1"
+            className="absolute z-1"
             style={{
                 top: slide === "How It Works" ? `${yPos}px` : "0",
                 transition: !isResizing ? "top 0.3s ease-in-out" : "none"
@@ -66,12 +67,36 @@ function Slide()
             ></Toggle>
             
             <div 
-                className="flex justify-center items-center bg-graphite-900"
+                className="flex overflow-scroll flex-col gap-10 p-6 bg-graphite-900 relative"
                 style={{
                     height: `${height}px`
                 }}
             >
-                <h1 className="text-9xl font-bold text-white">SLIDE CONTENT HERE</h1>
+                <section className="flex pb-10 border-b-4 border-b-white text-white text-xl indent-5 z-1">
+                    <div className="flex items-start w-full h-full flex-[40%]">
+                        <h1 className="sticky top-0 left-0 text-4xl font-bold">What is <span className="underline underline-offset-8">clamp()</span> and Why Use It?</h1>
+                    </div>
+
+                    <div className="flex-[60%]">
+                        <p className="text-xl text-white flex-[60%] indent-5"><span className="pr-5 font-bold">•</span>The CSS <span className="underline underline-offset-2 font-bold">clamp()</span> function allows you to create responsive values that adapt to the user's screen size without relying on <span className="font-bold">media queries</span>. It takes three values:</p>
+
+                        <div className="my-5 border-2 border-graphite-300">
+                            <h5 className="p-2 text-xs border-b-2 border-b-graphite-300 bg-graphite-700">Clamp() Function</h5>
+
+                            <p className="p-5 text-xl bg-graphite-800">clamp(min, preferred, max)</p>
+                        </div>
+
+                        <div className="mb-5 text-lg">
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">min</span>: the smallest value allowed (e.g., 16px)</p>
+
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">preferred</span>: the fluid value, often based on vw (viewport width)</p>
+
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">max</span>: the largest value allowed (e.g., 24px)</p>
+                        </div>
+
+                        <p>As the viewport changes, the preferred value adjusts, but it never goes below the min or above the max.</p>
+                    </div>
+                </section>
             </div>
         </section>
     );
