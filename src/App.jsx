@@ -8,6 +8,7 @@ import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
 import Toggle from "./components/Toggle";
 import useToggleStore from "./store/toggle-store";
+import Slide from "./components/Slide";
 
 
 function App()
@@ -79,17 +80,7 @@ function App()
           </div>
         </section>
 
-        <section className="absolute -bottom-0 w-full z-1">
-          <Toggle
-            value={slide}
-            onToggle={setSlide}
-            firstOption="How It Works"
-            secondOption="Calculator"
-            padding={0}
-            vertical={false}
-            fullWidth={true}
-          ></Toggle>
-        </section>
+        <Slide></Slide>
       </main>
     </>
   );
