@@ -134,6 +134,52 @@ function Slide()
                         <p>You can use clamp() for font sizes, <span className="font-bold">padding, margins, widths, and more</span>. Making it a powerful tool for responsive design.</p>
                     </div>
                 </section>
+
+                <section className="flex pb-10 text-white text-xl z-1">
+                    <div className="flex items-start w-full h-full flex-[40%]">
+                        <h1 className="sticky top-0 left-0 text-4xl font-bold">How to Use Clampli</h1>
+                    </div>
+
+                    <div className="flex-[60%]">
+                        <p className="mb-5">Clampli helps you generate the ideal clamp() value based on your design needs — no math, no guesswork.</p>
+
+                        <h3 className="font-bold text-2xl mb-5">1. Set Your Viewport Range</h3>
+
+                        <p className="mb-5">Tell Clampli the screen sizes you want to support:</p>
+                    
+                        <div className="mb-5 text-lg indent-5">
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">Minimum Size</span>: the smallest screen size (e.g., 320px)</p>
+
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">Maximum size</span>: the largest screen size (e.g., 1280px)</p>
+                        </div>
+
+                        <p className="mb-5">This defines the range over which your value will scale fluidly.</p>
+
+                        <h3 className="font-bold text-2xl mb-5">2. Set Your Size Range</h3>
+
+                        <p className="mb-5">Next, enter the desired size range:</p>
+                    
+                        <div className="mb-5 text-lg indent-5">
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">Minimum Size</span>: the smallest your font or element should be (e.g., 16px)</p>
+
+                            <p><span className="font-bold pr-5">•</span><span className="font-bold">Maximum size</span>: the largest it should scale to (e.g., 24px)</p>
+                        </div>
+
+                        <p className="mb-5">Clampli will calculate a responsive formula that smoothly interpolates between these sizes based on the screen width.</p>
+                    
+                        <h3 className="font-bold text-2xl mb-5">Get Your clamp() Value</h3>
+
+                        <p>Click Generate, and Clampli will output the CSS clamp() function you can copy and paste into your code.</p>
+
+                        <p>Example output:</p>
+
+                        <div className="my-5 border-2 border-graphite-300">
+                            <h5 className="p-2 text-xs border-b-2 border-b-graphite-300 bg-graphite-700">css</h5>
+
+                            <p className="p-5 text-xl bg-graphite-800">font-size: clamp(16px, 1.5vw + 1rem, 24px);</p>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
     );
