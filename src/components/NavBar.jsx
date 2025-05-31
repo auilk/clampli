@@ -8,9 +8,10 @@ const NavBarContext = createContext(false);
  * @param {Object} props - Component props.
  * @param {React.ReactNode} props.children - Elements to be rendered inside the navbar.
  * @param {string} [props.gap="5px"] - CSS gap between children elements (e.g., "5px", "1rem").
+ * @param {string} [props.padding="1.25rem"] - CSS padding inside the navbar container (e.g., "1rem", "10px").
  * @returns {JSX.Element} The rendered navigation bar container.
  */
-function NavBar({children, gap = "5px"})
+function NavBar({children, gap = "5px", padding = "1.25rem"})
 {
     const leftElements = []
     const centerElements = []
@@ -46,9 +47,10 @@ function NavBar({children, gap = "5px"})
                 }}
             >
                 <div 
-                    className="p-5 flex justify-center items-center flex-[5%] border-r-2 border-white"
+                    className="flex justify-center items-center flex-[5%] border-r-2 border-white"
                     style={{
                         gap: gap,
+                        padding: padding
                     }}
                 >
                     {leftElements}
@@ -57,16 +59,17 @@ function NavBar({children, gap = "5px"})
                 <div 
                     className="flex justify-center items-center flex-[90%]" 
                     style={{
-                        gap: gap,
+                        gap: gap
                     }}
                 >
                     {centerElements}
                 </div>
 
                 <div 
-                    className="p-5 flex justify-center items-center flex-[5%] border-l-2 border-white" 
+                    className="flex justify-center items-center flex-[5%] border-l-2 border-white" 
                     style={{
                         gap: gap,
+                        padding: padding
                     }}
                 >
                     {rightElements}

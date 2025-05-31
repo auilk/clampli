@@ -13,34 +13,43 @@ function App()
   return (
     <>
       <header className="flex flex-col">
-        <NavBar gap="10px">
+        <NavBar 
+          gap="clamp(5px, 4.286px + 0.223vw, 10px)"
+          padding="clamp(0.5rem, 0.393rem + 0.536vw, 1.25rem)"
+        >
           <NavLink 
             position="right" 
             link="https://github.com/auilk" 
             text="GitHub" 
-            fontSize="0.6rem"
+            fontSize="clamp(0.4rem, 0.329rem + 0.357vw, 0.9rem)"
             icon={GitIcon}
+            iconSize="clamp(1rem, 0.886rem + 0.571vw, 1.8rem)"
           ></NavLink>
 
           <NavLink 
             position="right" 
             link="https://github.com/auilk" 
             text="LinkedIn" 
-            fontSize="0.6rem"
+            fontSize="clamp(0.4rem, 0.329rem + 0.357vw, 0.9rem)"
             icon={LinkedinIcon}
+            iconSize="clamp(1rem, 0.886rem + 0.571vw, 1.8rem)"
           ></NavLink>
 
           <p 
-            className="text-lg text-white" 
             position="center"
+            className="text-white"
+            style={{
+              fontSize: "clamp(0.7rem, 0.545rem + 0.775vw, 1.785rem)"
+            }}
           >
             Fluid type & layout—no math, just magic
           </p>
 
           <div 
-            className="min-w-16 mr-1.5 h-10 scale-160 bg-cover bg-center bg-no-repeat"
+            className="mx-1.5 h-10 scale-170 bg-cover bg-center bg-no-repeat"
             position="left"
             style={{
+              minWidth: "clamp(2.5rem, 2.286rem + 1.071vw, 4rem)",
               backgroundImage: `url(${ClampliLogo})`,
             }}
           ></div>
