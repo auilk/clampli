@@ -8,18 +8,17 @@ import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
 import Slide from "./components/Slide";
 
-
 function App()
 {
   return (
     <>
       <header className="flex flex-col">
-        <NavBar gap={10}>
+        <NavBar gap="10px">
           <NavLink 
             position="right" 
             link="https://github.com/auilk" 
             text="GitHub" 
-            fontSize={0.6} 
+            fontSize="0.6rem"
             icon={GitIcon}
           ></NavLink>
 
@@ -27,7 +26,7 @@ function App()
             position="right" 
             link="https://github.com/auilk" 
             text="LinkedIn" 
-            fontSize={0.6} 
+            fontSize="0.6rem"
             icon={LinkedinIcon}
           ></NavLink>
 
@@ -67,7 +66,7 @@ function App()
               ></Form>
             </div>
 
-            <ClampResult fontSize={1.4}></ClampResult>
+            <ClampResult fontSize="1.4rem"></ClampResult>
           </div>
 
           <div className="w-full h-full flex-[5%] border-l-2 border-white">

@@ -1,6 +1,17 @@
 import { useEffect, useRef } from "react";
 
-function TextOutline({className, text, fontSize, outlineColor, outlineWidth})
+/**
+ * Renders text with an outlined stroke effect.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.className] - Optional CSS class for the container.
+ * @param {string} props.text - The text content to display.
+ * @param {string} [props.fontSize="1rem"] - CSS font size (e.g., "1rem", "20px").
+ * @param {string} [props.outlineColor="black"] - CSS color of the text outline.
+ * @param {string | number} [props.outlineWidth="1px"] - Width of the outline stroke.
+ * @returns {JSX.Element} The rendered outlined text element.
+ */
+function TextOutline({className, text, fontSize = "1rem", outlineColor = "black", outlineWidth = "1px"})
 {
     const textRef = useRef(null);
     const svgRef = useRef(null);

@@ -1,13 +1,16 @@
 import React, { createContext } from "react";
 
-/**
- * @param {Object} props
- * @param {number} [props.gap = 5]
- */
-
 const NavBarContext = createContext(false);
 
-function NavBar({children, gap = 5})
+/**
+ * A navigation bar container that arranges its children with a customizable gap.
+ *
+ * @param {Object} props - Component props.
+ * @param {React.ReactNode} props.children - Elements to be rendered inside the navbar.
+ * @param {string} [props.gap="5px"] - CSS gap between children elements (e.g., "5px", "1rem").
+ * @returns {JSX.Element} The rendered navigation bar container.
+ */
+function NavBar({children, gap = "5px"})
 {
     const leftElements = []
     const centerElements = []
@@ -39,13 +42,13 @@ function NavBar({children, gap = 5})
             <nav 
                 className="flex border-b-2 border-white"
                 style={{
-                    gap: `${gap}px`,
+                    gap: gap,
                 }}
             >
                 <div 
                     className="p-5 flex justify-center items-center flex-[5%] border-r-2 border-white"
                     style={{
-                        gap: `${gap}px`,
+                        gap: gap,
                     }}
                 >
                     {leftElements}
@@ -54,7 +57,7 @@ function NavBar({children, gap = 5})
                 <div 
                     className="flex justify-center items-center flex-[90%]" 
                     style={{
-                        gap: `${gap}px`,
+                        gap: gap,
                     }}
                 >
                     {centerElements}
@@ -63,7 +66,7 @@ function NavBar({children, gap = 5})
                 <div 
                     className="p-5 flex justify-center items-center flex-[5%] border-l-2 border-white" 
                     style={{
-                        gap: `${gap}px`,
+                        gap: gap,
                     }}
                 >
                     {rightElements}

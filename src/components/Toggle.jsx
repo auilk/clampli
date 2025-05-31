@@ -1,4 +1,17 @@
-function Toggle({fontSize = 1, padding = 1, value, onToggle, firstOption = "option01", secondOption = "option02", vertical = false, fullWidth = false})
+/**
+ * Toggle component that switches between two options on click.
+ * Uses Zustand for internal state management (`value` and `onToggle`).
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.fontSize="1rem"] - CSS font size of the toggle text.
+ * @param {string} [props.padding="1rem"] - CSS padding inside the toggle button.
+ * @param {string} [props.firstOption="option01"] - Label for the first toggle option.
+ * @param {string} [props.secondOption="option02"] - Label for the second toggle option.
+ * @param {boolean} [props.vertical=false] - If true, toggle displays vertically; otherwise horizontally.
+ * @param {boolean} [props.fullWidth=false] - If true, toggle stretches to fill the container width.
+ * @returns {JSX.Element} The rendered toggle button component.
+ */
+function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", secondOption = "option02", vertical = false, fullWidth = false, value, onToggle})
 {    
     const longest = firstOption.length > secondOption.length ? firstOption : secondOption;
 
@@ -17,8 +30,8 @@ function Toggle({fontSize = 1, padding = 1, value, onToggle, firstOption = "opti
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
-                    width: `${fontSize * 1.5}rem`,
-                    height: `${fontSize * 1.5}rem`,
+                    width: `calc(${fontSize} * 1.5rem)`,
+                    height: `calc(${fontSize} * 1.5rem)`,
                     transform: value === firstOption ? vertical ? "rotateZ(0deg) rotateY(0deg)" : "rotateZ(90deg) rotateY(0deg)"  : vertical ? "rotateZ(0deg) rotateY(-180deg)" : "rotateZ(90deg) rotateY(-180deg)",
                 }}
             >
@@ -34,9 +47,9 @@ function Toggle({fontSize = 1, padding = 1, value, onToggle, firstOption = "opti
             <div
                 className="relative font-bold leading-normal text-white w-fit h-fit"
                 style={{
-                    padding: vertical ? `${padding}rem 0px` : `0px ${padding}rem`,
-                    fontSize: `${fontSize}rem`,
-                    perspective: `${fontSize * 100}px`,
+                    padding: vertical ? `${padding} 0px` : `0px ${padding}`,
+                    fontSize: fontSize,
+                    perspective: `${parseFloat(fontSize) * 100}px`,
                     writingMode: vertical ? "sideways-rl" : "horizontal-tb"
                 }}
             >
@@ -46,7 +59,7 @@ function Toggle({fontSize = 1, padding = 1, value, onToggle, firstOption = "opti
                     className="absolute top-1/2 left-1/2 transition-transform duration-500 w-fit text-nowrap -translate-1/2 backface-hidden"
                     style={{
                         transform: value === firstOption ? vertical ? "rotateY(0deg)" : "rotateX(0deg)" : vertical ? "rotateY(180deg)" : "rotateX(180deg)",
-                        transformOrigin: `center center ${-10 * fontSize}px`
+                        transformOrigin: `center center ${-10 * parseFloat(fontSize)}px`
                     }}
                 >
                     {firstOption}
@@ -56,7 +69,7 @@ function Toggle({fontSize = 1, padding = 1, value, onToggle, firstOption = "opti
                     className="absolute top-1/2 left-1/2 transition-transform duration-500 w-fit text-nowrap -translate-1/2 backface-hidden"
                     style={{
                         transform: value === secondOption ? vertical ? "rotateY(0deg)" : "rotateX(0deg)" : vertical ? "rotateY(-180deg)" : "rotateX(-180deg)",
-                        transformOrigin: `center center ${-10 * fontSize}px` 
+                        transformOrigin: `center center ${-10 * parseFloat(fontSize)}px` 
                     }}
                 >
                     {secondOption}
@@ -69,8 +82,8 @@ function Toggle({fontSize = 1, padding = 1, value, onToggle, firstOption = "opti
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
-                    width: `${fontSize * 1.5}rem`,
-                    height: `${fontSize * 1.5}rem`,
+                    width: `calc(${fontSize} * 1.5rem)`,
+                    height: `calc(${fontSize} * 1.5rem)`,
                     transform: value === firstOption ? vertical ? "rotateZ(0deg) rotateY(0deg)" : "rotateZ(90deg) rotateY(0deg)"  : vertical ? "rotateZ(0deg) rotateY(-180deg)" : "rotateZ(90deg) rotateY(-180deg)",
                 }}
             >

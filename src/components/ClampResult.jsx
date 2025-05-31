@@ -2,7 +2,14 @@ import useToggleStore from "../store/toggle-store";
 import Toggle from "./Toggle";
 import UnitSelector from "./UnitSelector";
 
-function ClampResult({fontSize = 1})
+/**
+ * React component that renders a responsive font size using a CSS clamp() expression.
+ *
+ * @param {Object} props - Component props.
+ * @param {number} [props.fontSize="1rem"] - Base font size in `rem` units used to generate the clamp().
+ * @returns {JSX.Element} A rendered element displaying the clamp() expression or styled with it.
+ */
+function ClampResult({fontSize = "1rem"})
 {
     const format = useToggleStore((state) => (state.format));
     const setFormat = useToggleStore((state) => (state.setFormat));
@@ -16,7 +23,7 @@ function ClampResult({fontSize = 1})
                     <p 
                         className="flex flex-1 justify-center items-center"
                         style={{
-                            fontSize:`${fontSize}rem`
+                            fontSize: fontSize
                         }}
                     >
                         EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)
@@ -39,7 +46,7 @@ function ClampResult({fontSize = 1})
                 <Toggle
                     value={format}
                     onToggle={setFormat}
-                    fontSize={1.2}
+                    fontSize="1.2rem"
                     firstOption="CSS"
                     secondOption="TAILWIND"
                     vertical={true}

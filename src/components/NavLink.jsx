@@ -2,19 +2,20 @@ import { useContext } from "react";
 import { NavBarContext } from "./NavBar";
 
 /**
- * @param {Object} props
- * @param {"left" | "center" | "right"} [props.position = "center"]
- * @param {string} props.link
- * @param {string} [props.text = "click"]
- * @param {string} [props.textColor = "white"]
- * @param {number} [props.fontSize = 1] - Font size is in rem
- * @param {string} props.icon - Icon path
- * @param {number} props.iconScale - Icon path
- * @param {React.ReactNode} props.children
- * @returns {JSX.Element}
+ * Renders a styled navigation link with optional icon and custom content.
+ *
+ * @param {Object} props - Component properties.
+ * @param {"left" | "center" | "right"} [props.position="center"] - Alignment of the link.
+ * @param {string} props.link - Destination URL.
+ * @param {string} [props.text="click"] - Display text for the link.
+ * @param {string} [props.textColor="white"] - CSS color value for the text.
+ * @param {string} [props.fontSize="1rem"] - Font size of the text (e.g., "1rem", "16px").
+ * @param {string} props.icon - URL or path to the icon.
+ * @param {string} [props.iconSize="1.25rem"] - CSS size of the icon (e.g., "1.25rem", "20px").
+ * @returns {JSX.Element} The rendered navigation link.
  */
 
-function NavLink({position = "center", link, text = "click", textColor = "white", fontSize = 1, icon, iconScale = 1})
+function NavLink({position = "center", link, text = "click", textColor = "white", fontSize = "1rem", icon, iconSize = "1.25rem"})
 {
     const context = useContext(NavBarContext);
 
@@ -33,8 +34,8 @@ function NavLink({position = "center", link, text = "click", textColor = "white"
             <div
                 className="bg-center bg-no-repeat bg-contain rounded-full"
                 style={{
-                    width: `${1.25 * iconScale}rem`,
-                    height: `${1.25 * iconScale}rem`,
+                    width: iconSize,
+                    height: iconSize,
                     backgroundImage: `url(${icon})`,
                 }}
             ></div>
@@ -43,7 +44,7 @@ function NavLink({position = "center", link, text = "click", textColor = "white"
                 className="font-bold"
                 style={{
                     color: textColor,
-                    fontSize: `${fontSize}rem`
+                    fontSize: fontSize
                 }}
             >
                 {text}

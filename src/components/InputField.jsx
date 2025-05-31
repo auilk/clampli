@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 /**
- * @param {Object} props
- * @param {string} [props.label="label"]
- * @param {string} [props.placeholder="placeholder"]
- * @param {number} [props.width=20]
- * @param {number} [props.fontSize=1]
- * @param {string} [props.textColor]
- * @param {string} [props.borderColor]
- * @returns {JSX.Element}
+ * A styled input field component with customizable label and appearance.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.label="label"] - Text label for the input field.
+ * @param {string} [props.width="20px"] - CSS width of the input (e.g., "200px", "20rem", "50%").
+ * @param {string} [props.fontSize="1rem"] - CSS font size for the input text.
+ * @param {string} [props.textColor] - CSS text color.
+ * @param {string} [props.borderColor] - CSS border color.
+ * @returns {JSX.Element} The rendered input field element.
  */
-
-function InputField({label = "label", width = 20, fontSize = 1, textColor, borderColor})
+function InputField({label = "label", width = "20rem", fontSize = "1rem", textColor, borderColor})
 {
     const [value, SetValue] = useState("");
     const [isFocused, SetIsFocused] = useState(false);
@@ -24,7 +24,7 @@ function InputField({label = "label", width = 20, fontSize = 1, textColor, borde
                 style={{
                     color: borderColor,
                     top: isFocused === true ? "-2px" : "50%",
-                    fontSize: isFocused === true ? `${fontSize * 0.75}rem` : `${fontSize}rem`
+                    fontSize: isFocused === true ? `calc(${fontSize} * 0.75)` : fontSize
                 }}
             >
                 {label}
@@ -39,12 +39,12 @@ function InputField({label = "label", width = 20, fontSize = 1, textColor, borde
                 onFocus={() => SetIsFocused(true)}
                 onBlur={() => SetIsFocused(false)}
                 style={{
-                    width: `${width}rem`,
-                    fontSize: `${fontSize}rem`,
+                    width: width,
+                    fontSize: fontSize,
                     color: textColor,
                     borderColor: borderColor,
-                    paddingTop: `${68.18 / 100 * fontSize}rem`,
-                    paddingBottom: `${68.18 / 100 * fontSize}rem`
+                    paddingTop: `${68.18 / 100 * parseFloat(fontSize)}rem`,
+                    paddingBottom: `${68.18 / 100 * parseFloat(fontSize)}rem`
                 }}
             />
         </div>

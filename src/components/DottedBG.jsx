@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function DottedBG({className, children})
+function DottedBG()
 {
     const canvas = useRef(null);
     const animationRequest = useRef(null);

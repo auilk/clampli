@@ -1,7 +1,14 @@
 import { useState } from "react";
 import TextOutline from "./TextOutline";
 
-function UnitSelector({fontSize = 2})
+/**
+ * A unit selector component for choosing between "rem" and "px".
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.fontSize="2rem"] - CSS font size for the selector text.
+ * @returns {JSX.Element} The rendered unit selector element.
+ */
+function UnitSelector({fontSize = "2rem"})
 {
     const [selected, SetSelected] = useState("px");
 
@@ -10,8 +17,8 @@ function UnitSelector({fontSize = 2})
             <button 
                 className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
                 style={{
-                    padding: `${1.875 * fontSize}rem`,
-                    fontSize: `${fontSize}rem`,
+                    padding: `${1.875 * parseFloat(fontSize)}rem`,
+                    fontSize: fontSize,
                     flex: selected === "px" ? "90%" : "10%",
                 }}
                 onClick={() => SetSelected("px")}
@@ -38,9 +45,9 @@ function UnitSelector({fontSize = 2})
                 >
                     <TextOutline
                         text={"UNITS ARE IN PIXELS"} 
-                        fontSize={`${3 * fontSize}rem`}
+                        fontSize={`${3 * parseFloat(fontSize)}rem`}
                         outlineColor={"white"} 
-                        outlineWidth={`${0.05 * fontSize}rem`}
+                        outlineWidth={`${0.05 * parseFloat(fontSize)}rem`}
                     ></TextOutline>
                 </div>
             </button>
@@ -75,9 +82,9 @@ function UnitSelector({fontSize = 2})
                 >
                     <TextOutline 
                         text={"UNITS ARE IN REM"} 
-                        fontSize={`${3 * fontSize}rem`}
+                        fontSize={`${3 * parseFloat(fontSize)}rem`}
                         outlineColor={"white"} 
-                        outlineWidth={`${0.05 * fontSize}rem`}
+                        outlineWidth={`${0.05 * parseFloat(fontSize)}rem`}
                     ></TextOutline>
                 </div>
 
