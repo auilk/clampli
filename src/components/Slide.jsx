@@ -262,10 +262,16 @@ function Slide()
                     </article>
                 </section>
 
-                <section className="flex pb-10 text-white text-xl z-1">
+                <section 
+                    className="flex pb-10 text-white text-xl z-1"
+                    style={{
+                        paddingBottom: "clamp(0.5rem, 0.212rem + 1.441vw, 2.5rem)",
+                        borderBottomWidth: "clamp(2px, 1.712px + 0.09vw, 4px)"
+                    }}
+                >
                     <aside className="flex items-start w-full h-full flex-[40%]">
                         <h1 
-                            className="sticky top-0 font-bold"
+                            className="sticky top-0 font-bold pr-3"
                             style={{
                                 fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
                             }}
@@ -274,45 +280,154 @@ function Slide()
                         </h1>
                     </aside>
 
-                    <article className="flex flex-col flex-[60%] space-y-6">
-                        <p>Clampli helps you generate the ideal <code>clamp()</code> value based on your design needs. No math and no guesswork.</p>
+                    <article className="flex flex-col flex-[60%]">
+                        <p
+                            style={{
+                                fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                            }}
+                        >
+                            Clampli helps you generate the ideal <code>clamp()</code> value based on your design needs. No math and no guesswork.
+                        </p>
 
                         <section>
-                            <h2 className="mb-5 font-bold text-2xl">1. Set Your Viewport Range</h2>
+                            <h2 
+                                className="mb-5 font-bold text-2xl"
+                                style={{
+                                    marginTop: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    marginBottom: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    fontSize: "clamp(0.7rem, 0.513rem + 0.937vw, 2rem)"
+                                }}
+                            >
+                                1. Set Your Viewport Range
+                            </h2>
                             
-                            <p>Tell Clampli the screen sizes you want to support:</p>
+                            <p
+                                style={{
+                                    paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                    fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                                }}
+                            >
+                                Tell Clampli the screen sizes you want to support:
+                            </p>
 
-                            <ul className="my-3 text-lg list-none indent-5">
+                            <ul
+                                style={{
+                                    paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                    paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                                    fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
+                                }}
+                            >
                                 <li><span className="font-bold">•</span> <span className="font-bold">Minimum Size</span>: the smallest screen size (e.g., <code>320px</code>)</li>
                                 <li><span className="font-bold">•</span> <span className="font-bold">Maximum Size</span>: the largest screen size (e.g., <code>1280px</code>)</li>
                             </ul>
 
-                            <p>This defines the range over which your value will scale fluidly.</p>
+                            <p
+                                style={{
+                                    fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                                }}
+                            >
+                                This defines the range over which your value will scale fluidly.
+                            </p>
                         </section>
 
                         <section>
-                            <h2 className="mb-5 font-bold text-2xl">2. Set Your Size Range</h2>
+                            <h2 
+                                className="mb-5 font-bold text-2xl"
+                                style={{
+                                    marginTop: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    marginBottom: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    fontSize: "clamp(0.7rem, 0.513rem + 0.937vw, 2rem)"
+                                }}
+                            >
+                                2. Set Your Size Range
+                            </h2>
 
-                            <p>Next, enter the desired size range:</p>
+                            <p
+                                style={{
+                                    fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                                }}
+                            >
+                                Next, enter the desired size range:
+                            </p>
 
-                            <ul className="my-3 text-lg list-none indent-5">
+                            <ul
+                                style={{
+                                    paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                    paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                                    fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
+                                }}
+                            >
                                 <li><span className="font-bold">•</span> <span className="font-bold">Minimum Size</span>: the smallest your font or element should be (e.g., <code>16px</code>)</li>
                                 <li><span className="font-bold">•</span> <span className="font-bold">Maximum Size</span>: the largest it should scale to (e.g., <code>24px</code>)</li>
                             </ul>
 
-                            <p>Clampli will calculate a responsive formula that smoothly interpolates between these sizes based on the screen width.</p>
+                            <p
+                                style={{
+                                    fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                                }}
+                            >
+                                Clampli will calculate a responsive formula that smoothly interpolates between these sizes based on the screen width.
+                            </p>
                         </section>
 
                         <section>
-                            <h2 className="mb-5 font-bold text-2xl">3. Get Your clamp() Value</h2>
+                            <h2 
+                                className="mb-5 font-bold text-2xl"
+                                style={{
+                                    marginTop: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    marginBottom: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    fontSize: "clamp(0.7rem, 0.513rem + 0.937vw, 2rem)"
+                                }}
+                            >
+                                3. Get Your clamp() Value
+                            </h2>
 
-                            <p>Click Generate, and Clampli will output the CSS <code>clamp()</code> function you can copy and paste into your code.</p>
-                            <p>Example output:</p>
+                            <p
+                                style={{
+                                    fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                                }}
+                            >
+                                Click Generate, and Clampli will output the CSS <code>clamp()</code> function you can copy and paste into your code.
+                            </p>
 
-                            <div className="my-5 border-2 border-graphite-300">
-                                <h3 className="p-2 text-xs border-b-2 border-graphite-300 bg-graphite-700">css</h3>
-                                <code className="block p-5 text-xl bg-graphite-800">font-size: clamp(16px, 1.5vw + 1rem, 24px);</code>
-                            </div>
+                            <p
+                                style={{
+                                    marginTop: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    marginBottom: "clamp(0.4rem, 0.277rem + 0.613vw, 1.25rem)",
+                                    fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                                }}
+                            >
+                                Example output:
+                            </p>
+
+                            <div 
+                                className="border-graphite-300"
+                                style={{
+                                    marginBottom: "clamp(0.4rem, 0.198rem + 1.009vw, 1.8rem)",
+                                    borderWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
+                                }}
+                            >
+                            <h2 
+                                className="border-graphite-300 bg-graphite-700"
+                                style={{
+                                    padding: "clamp(0.3rem, 0.257rem + 0.216vw, 0.6rem)",
+                                    fontSize:"clamp(0.3rem, 0.235rem + 0.324vw, 0.75rem)",
+                                    borderBottomWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
+                                }}
+                            >
+                                css
+                            </h2>
+
+                            <code 
+                                className="block text-xl bg-graphite-800"
+                                style={{
+                                    padding: "clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)",
+                                    fontSize:"clamp(0.45rem, 0.299rem + 0.757vw, 1.5rem)"
+                                }}
+                            >
+                                font-size: clamp(16px, 1.5vw + 1rem, 24px);
+                            </code>
+                        </div>
                         </section>
                     </article>
                 </section>
