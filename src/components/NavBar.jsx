@@ -9,9 +9,10 @@ const NavBarContext = createContext(false);
  * @param {React.ReactNode} props.children - Elements to be rendered inside the navbar.
  * @param {string} [props.gap="5px"] - CSS gap between children elements (e.g., "5px", "1rem").
  * @param {string} [props.padding="1.25rem"] - CSS padding inside the navbar container (e.g., "1rem", "10px").
+ * @param {string} [props.borderWidth="2px"] - CSS border width around the navbar container (e.g., "1px", "0.5rem").
  * @returns {JSX.Element} The rendered navigation bar container.
  */
-function NavBar({children, gap = "5px", padding = "1.25rem"})
+function NavBar({children, gap = "5px", padding = "1.25rem", borderWidth = "2px"})
 {
     const leftElements = []
     const centerElements = []
@@ -41,16 +42,18 @@ function NavBar({children, gap = "5px", padding = "1.25rem"})
     return(
         <NavBarContext.Provider value={true}>
             <nav 
-                className="flex border-b-2 border-white"
+                className="flex border-white"
                 style={{
                     gap: gap,
+                    borderBottomWidth: borderWidth
                 }}
             >
                 <div 
-                    className="flex justify-center items-center flex-[5%] border-r-2 border-white"
+                    className="flex justify-center items-center flex-[5%] border-white"
                     style={{
                         gap: gap,
-                        padding: padding
+                        padding: padding,
+                        borderRightWidth: borderWidth
                     }}
                 >
                     {leftElements}
@@ -66,10 +69,11 @@ function NavBar({children, gap = "5px", padding = "1.25rem"})
                 </div>
 
                 <div 
-                    className="flex justify-center items-center flex-[5%] border-l-2 border-white" 
+                    className="flex justify-center items-center flex-[5%] border-white" 
                     style={{
                         gap: gap,
-                        padding: padding
+                        padding: padding,
+                        borderLeftWidth: borderWidth
                     }}
                 >
                     {rightElements}

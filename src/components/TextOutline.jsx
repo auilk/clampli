@@ -43,10 +43,12 @@ function TextOutline({className, text, fontSize = "1rem", outlineColor = "black"
         >
             <text
                 ref={textRef}
-                fontSize={fontSize}
                 fill="none"
                 stroke={outlineColor}
-                strokeWidth={`${outlineWidth}rem`}
+                strokeWidth={outlineWidth}
+                style={{
+                    fontSize: fontSize
+                }}
             >
                 {text}
             </text>

@@ -11,7 +11,7 @@ import { useState } from "react";
  * @param {string} [props.borderColor] - CSS border color.
  * @returns {JSX.Element} The rendered input field element.
  */
-function InputField({label = "label", width = "20rem", fontSize = "1rem", textColor, borderColor})
+function InputField({label = "label", width = "20rem", fontSize = "1rem", textColor, borderColor, borderWidth = "2px"})
 {
     const [value, SetValue] = useState("");
     const [isFocused, SetIsFocused] = useState(false);
@@ -19,19 +19,21 @@ function InputField({label = "label", width = "20rem", fontSize = "1rem", textCo
     return (
         <div className="flex relative flex-col">
             <label 
-                className="pl-2 pr-2 text-lg text-white bg-graphite-900 absolute top-1/2 left-1 -translate-y-1/2 transition-all cursor-text"
+                className="text-lg text-white bg-graphite-900 absolute top-1/2 left-1 -translate-y-1/2 transition-all cursor-text"
                 htmlFor={label}
                 style={{
                     color: borderColor,
                     top: isFocused === true ? "-2px" : "50%",
-                    fontSize: isFocused === true ? `calc(${fontSize} * 0.75)` : fontSize
+                    fontSize: isFocused === true ? `calc(${fontSize} * 0.75)` : fontSize,
+                    paddingLeft: "clamp(0.2rem, 0.085rem + 0.577vw, 1rem)",
+                    paddingRight: "clamp(0.2rem, 0.085rem + 0.577vw, 1rem)"
                 }}
             >
                 {label}
             </label>
             
             <input
-                className="pt-3 pr-3 pb-3 pl-3 text-6xl text-white border-2 outline-0" 
+                className="text-white outline-0" 
                 id={label} 
                 type="text" 
                 value={value} 
@@ -43,8 +45,9 @@ function InputField({label = "label", width = "20rem", fontSize = "1rem", textCo
                     fontSize: fontSize,
                     color: textColor,
                     borderColor: borderColor,
-                    paddingTop: `${68.18 / 100 * parseFloat(fontSize)}rem`,
-                    paddingBottom: `${68.18 / 100 * parseFloat(fontSize)}rem`
+                    paddingTop: `calc(60.18 / 100 * ${fontSize})`,
+                    paddingBottom: `calc(60.18 / 100 * ${fontSize})`,
+                    borderWidth: borderWidth
                 }}
             />
         </div>

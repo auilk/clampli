@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 450px;
+}
+
 @layer base {
   * {
     padding: 0;

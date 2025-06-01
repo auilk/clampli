@@ -6,18 +6,24 @@ import TextOutline from "./TextOutline";
  *
  * @param {Object} props - Component props.
  * @param {string} [props.fontSize="2rem"] - CSS font size for the selector text.
+ * @param {string} [props.borderWidth="2px"] - CSS border width around the UnitSelector container (e.g., "1px", "0.5rem").
  * @returns {JSX.Element} The rendered unit selector element.
  */
-function UnitSelector({fontSize = "2rem"})
+function UnitSelector({fontSize = "2rem", borderWidth = "2px"})
 {
     const [selected, SetSelected] = useState("px");
 
     return (
-        <div className="flex justify-between border-[2px_0px_2px_2px] border-white">
+        <div 
+            className="flex justify-between border-white"
+            style={{
+                borderWidth: `${borderWidth} 0px ${borderWidth} ${borderWidth}`
+            }}
+        >
             <button 
                 className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
                 style={{
-                    padding: `${1.875 * parseFloat(fontSize)}rem`,
+                    padding: `calc(1.6 * ${fontSize})`,
                     fontSize: fontSize,
                     flex: selected === "px" ? "90%" : "10%",
                 }}
@@ -45,9 +51,9 @@ function UnitSelector({fontSize = "2rem"})
                 >
                     <TextOutline
                         text={"UNITS ARE IN PIXELS"} 
-                        fontSize={`${3 * parseFloat(fontSize)}rem`}
+                        fontSize={`calc(${fontSize} * 3.2)`}
                         outlineColor={"white"} 
-                        outlineWidth={`${0.05 * parseFloat(fontSize)}rem`}
+                        outlineWidth={`calc(${fontSize} * 0.1)`}
                     ></TextOutline>
                 </div>
             </button>
@@ -55,8 +61,8 @@ function UnitSelector({fontSize = "2rem"})
             <button 
                 className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
                 style={{
-                    padding: `${1.875 * fontSize}rem`,
-                    fontSize: `${fontSize}rem`,
+                    padding: `calc(1.6 * ${fontSize})`,
+                    fontSize: fontSize,
                     flex: selected === "rem" ? "90%" : "10%",
                 }}
                 onClick={() => SetSelected("rem")}
@@ -82,9 +88,9 @@ function UnitSelector({fontSize = "2rem"})
                 >
                     <TextOutline 
                         text={"UNITS ARE IN REM"} 
-                        fontSize={`${3 * parseFloat(fontSize)}rem`}
+                        fontSize={`calc(${fontSize} * 3.2)`}
                         outlineColor={"white"} 
-                        outlineWidth={`${0.05 * parseFloat(fontSize)}rem`}
+                        outlineWidth={`calc(${fontSize} * 0.1)`}
                     ></TextOutline>
                 </div>
 

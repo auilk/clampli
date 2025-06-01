@@ -15,41 +15,42 @@ function App()
       <header className="flex flex-col">
         <NavBar 
           gap="clamp(5px, 4.286px + 0.223vw, 10px)"
-          padding="clamp(0.5rem, 0.393rem + 0.536vw, 1.25rem)"
+          padding="clamp(0rem, -0.096rem + 0.482vw, 0.5rem)"
+          borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
         >
           <NavLink 
             position="right" 
             link="https://github.com/auilk" 
             text="GitHub" 
-            fontSize="clamp(0.4rem, 0.329rem + 0.357vw, 0.9rem)"
+            fontSize="clamp(0.35rem, 0.283rem + 0.337vw, 0.7rem)"
             icon={GitIcon}
-            iconSize="clamp(1rem, 0.886rem + 0.571vw, 1.8rem)"
+            iconSize="clamp(0.75rem, 0.625rem + 0.627vw, 1.4rem)"
           ></NavLink>
 
           <NavLink 
             position="right" 
             link="https://github.com/auilk" 
             text="LinkedIn" 
-            fontSize="clamp(0.4rem, 0.329rem + 0.357vw, 0.9rem)"
+            fontSize="clamp(0.35rem, 0.283rem + 0.337vw, 0.7rem)"
             icon={LinkedinIcon}
-            iconSize="clamp(1rem, 0.886rem + 0.571vw, 1.8rem)"
+            iconSize="clamp(0.75rem, 0.625rem + 0.627vw, 1.4rem)"
           ></NavLink>
 
           <p 
             position="center"
             className="text-white"
             style={{
-              fontSize: "clamp(0.7rem, 0.545rem + 0.775vw, 1.785rem)"
+              fontSize: "clamp(0.6rem, 0.465rem + 0.675vw, 1.3rem)"
             }}
           >
             Fluid type & layout—no math, just magic
           </p>
 
           <div 
-            className="mx-1.5 h-10 scale-170 bg-cover bg-center bg-no-repeat"
+            className="mx-1.5 h-10 bg-cover bg-center bg-no-repeat"
             position="left"
             style={{
-              minWidth: "clamp(2.5rem, 2.286rem + 1.071vw, 4rem)",
+              width: "clamp(2.5rem, 1.825rem + 3.373vw, 6rem)",
               backgroundImage: `url(${ClampliLogo})`,
             }}
           ></div>
@@ -58,27 +59,40 @@ function App()
 
       <main className="flex relative flex-col flex-grow min-h-0">
         <section className="flex flex-grow pb-11 min-h-0">
-          <div className="w-full h-full flex-[5%] border-r-2 border-white">
+          <div className="w-full h-full flex-[6%] xs:flex-[5%] border-r-2 border-white">
             <DottedBG></DottedBG>
           </div>
           
-          <div className="flex flex-col justify-around h-full px-60 flex-[90%]">
-            <div className="flex justify-between">
+          <div className="flex flex-col items-center justify-around h-full px-0 flex-[90%]">
+            <div 
+              className="flex xs:flex-row flex-col justify-center"
+              style={{
+                gap: "clamp(20px, -49.189px + 21.622vw, 500px)"
+              }}
+            >
               <Form 
                 label01="Min Font Size" 
                 label02="Max Font Size"
+                gap="clamp(20px, 12.793px + 2.252vw, 70px)"
+                padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
+                padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
+                borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
               ></Form>
 
               <Form 
                 label01="Min Viewport Size" 
                 label02="Max Viewport Size"
+                gap="clamp(20px, 12.793px + 2.252vw, 70px)"
+                padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
+                padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
+                borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
               ></Form>
             </div>
 
-            <ClampResult fontSize="1.4rem"></ClampResult>
+            {/* <ClampResult fontSize="1.4rem"></ClampResult> */}
           </div>
 
-          <div className="w-full h-full flex-[5%] border-l-2 border-white">
+          <div className="w-full h-full flex-[6%] xs:flex-[5%] border-l-2 border-white">
             <DottedBG></DottedBG>
           </div>
         </section>
