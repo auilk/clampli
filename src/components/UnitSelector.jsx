@@ -21,11 +21,12 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px"})
             }}
         >
             <button 
-                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
+                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
                 style={{
                     padding: `calc(1.6 * ${fontSize})`,
                     fontSize: fontSize,
                     flex: selected === "px" ? "90%" : "10%",
+                    borderRightWidth: borderWidth
                 }}
                 onClick={() => SetSelected("px")}
             >
@@ -59,11 +60,12 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px"})
             </button>
 
             <button 
-                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 border-r-1 bg-graphite-900 hover:bg-graphite-500"
+                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
                 style={{
                     padding: `calc(1.6 * ${fontSize})`,
                     fontSize: fontSize,
                     flex: selected === "rem" ? "90%" : "10%",
+                    borderRightWidth: borderWidth
                 }}
                 onClick={() => SetSelected("rem")}
             >

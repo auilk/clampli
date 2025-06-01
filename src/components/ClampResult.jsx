@@ -7,32 +7,48 @@ import UnitSelector from "./UnitSelector";
  *
  * @param {Object} props - Component props.
  * @param {number} [props.fontSize="1rem"] - Base font size in `rem` units used to generate the clamp().
+ * @param {string} [props.borderWidth="2px"] - CSS border width around the ClampResult component (e.g., "1px", "0.5rem").
  * @returns {JSX.Element} A rendered element displaying the clamp() expression or styled with it.
  */
-function ClampResult({fontSize = "1rem"})
+function ClampResult({fontSize = "1rem", borderWidth = "2px"})
 {
     const format = useToggleStore((state) => (state.format));
     const setFormat = useToggleStore((state) => (state.setFormat));
 
     return(
-        <div className="w-full">
-            <UnitSelector fontSize={0.8}></UnitSelector>
+        <div className="w-[80%]">
+            <UnitSelector 
+                fontSize="clamp(0.4rem, 0.355rem + 0.223vw, 0.71rem)"
+                borderWidth={borderWidth}
+            ></UnitSelector>
 
-            <div className="w-full h-fit p-10 flex border-[0px_2px_2px_2px] border-white bg-graphite-900">
-                <div className="flex gap-5 items-center pr-5 pl-10 w-full text-white border-2">
-                    <p 
-                        className="flex flex-1 justify-center items-center"
+            <div 
+                className="w-full h-fit flex border-white bg-graphite-900"
+                style={{
+                    borderWidth: `0px ${borderWidth} ${borderWidth} ${borderWidth}`,
+                    padding: "clamp(0.5rem, 0.392rem + 0.541vw, 1.25rem)"
+                }}
+            >
+                <div 
+                    className="flex items-center w-full text-white"
+                    style={{
+                            borderWidth: borderWidth,
+                            paddingRight: "clamp(0.5rem, 0.392rem + 0.541vw, 1.25rem)"
+                    }}
+                >
+                    <code 
+                        className="flex flex-1 justify-center items-center text-nowrap"
                         style={{
-                            fontSize: fontSize
+                            fontSize: fontSize,
                         }}
                     >
-                        EXAMPLE: clamp(1rem, 0.679rem + 1.282vw, 1.5rem)
-                    </p>
+                        clamp(1rem, 0.679rem + 1.282vw, 1.5rem)
+                    </code>
 
                     <svg
                         className="cursor-pointer"
-                        width="24px" 
-                        height="24px" 
+                        width="clamp(10px, 7.982px + 0.631vw, 24px)" 
+                        height="clamp(10px, 7.982px + 0.631vw, 24px)" 
                         viewBox="0 -960 960 960" 
                         fill="#e3e3e3"
                         xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +62,8 @@ function ClampResult({fontSize = "1rem"})
                 <Toggle
                     value={format}
                     onToggle={setFormat}
-                    fontSize="1.2rem"
+                    padding="clamp(0.3rem, 0.199rem + 0.505vw, 1rem)"
+                    fontSize="clamp(0.5rem, 0.428rem + 0.36vw, 1rem)"
                     firstOption="CSS"
                     secondOption="TAILWIND"
                     vertical={true}

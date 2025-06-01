@@ -17,21 +17,22 @@ function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", s
 
     return (
         <button
-            className="p-2 w-fit h-fit flex justify-center items-center bg-graphite-900 border-[2px_2px_2px_0px] border-white hover:bg-graphite-500 transition-all duration-500 cursor-pointer"
+            className="w-fit h-fit flex justify-center items-center bg-graphite-900 border-[2px_2px_2px_0px] border-white hover:bg-graphite-500 transition-all duration-500 cursor-pointer"
             onClick={() => onToggle(value === firstOption ? secondOption : firstOption)}
             style={{
                 width: fullWidth ? "100%" : "fit-content",
-                flexDirection: vertical ? "column" : "row"
+                flexDirection: vertical ? "column" : "row",
+                padding: padding
             }}
         >
             <svg
-                className="relative mx-1 w-6 h-6 transition-transform duration-500"
+                className="relativew-6 h-6 transition-transform duration-500"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
-                    width: `calc(${fontSize} * 1.5rem)`,
-                    height: `calc(${fontSize} * 1.5rem)`,
+                    width: `calc(${fontSize} * 1.5)`,
+                    height: `calc(${fontSize} * 1.5)`,
                     transform: value === firstOption ? vertical ? "rotateZ(0deg) rotateY(0deg)" : "rotateZ(90deg) rotateY(0deg)"  : vertical ? "rotateZ(0deg) rotateY(-180deg)" : "rotateZ(90deg) rotateY(-180deg)",
                 }}
             >
@@ -49,7 +50,7 @@ function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", s
                 style={{
                     padding: vertical ? `${padding} 0px` : `0px ${padding}`,
                     fontSize: fontSize,
-                    perspective: `${parseFloat(fontSize) * 100}px`,
+                    perspective: `calc(${fontSize} * 4)`,
                     writingMode: vertical ? "sideways-rl" : "horizontal-tb"
                 }}
             >
@@ -59,7 +60,7 @@ function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", s
                     className="absolute top-1/2 left-1/2 transition-transform duration-500 w-fit text-nowrap -translate-1/2 backface-hidden"
                     style={{
                         transform: value === firstOption ? vertical ? "rotateY(0deg)" : "rotateX(0deg)" : vertical ? "rotateY(180deg)" : "rotateX(180deg)",
-                        transformOrigin: `center center ${-10 * parseFloat(fontSize)}px`
+                        transformOrigin: `center center calc(-0.5 * ${fontSize})`
                     }}
                 >
                     {firstOption}
@@ -69,7 +70,7 @@ function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", s
                     className="absolute top-1/2 left-1/2 transition-transform duration-500 w-fit text-nowrap -translate-1/2 backface-hidden"
                     style={{
                         transform: value === secondOption ? vertical ? "rotateY(0deg)" : "rotateX(0deg)" : vertical ? "rotateY(-180deg)" : "rotateX(-180deg)",
-                        transformOrigin: `center center ${-10 * parseFloat(fontSize)}px` 
+                        transformOrigin: `center center calc(-0.5 * ${fontSize})`
                     }}
                 >
                     {secondOption}
@@ -77,13 +78,13 @@ function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", s
             </div>
 
             <svg
-                className="relative mx-1 w-6 h-6 transition-transform duration-500"
+                className="relative w-6 h-6 transition-transform duration-500"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
-                    width: `calc(${fontSize} * 1.5rem)`,
-                    height: `calc(${fontSize} * 1.5rem)`,
+                    width: `calc(${fontSize} * 1.5)`,
+                    height: `calc(${fontSize} * 1.5)`,
                     transform: value === firstOption ? vertical ? "rotateZ(0deg) rotateY(0deg)" : "rotateZ(90deg) rotateY(0deg)"  : vertical ? "rotateZ(0deg) rotateY(-180deg)" : "rotateZ(90deg) rotateY(-180deg)",
                 }}
             >

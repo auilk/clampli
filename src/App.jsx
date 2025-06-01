@@ -89,7 +89,10 @@ function App()
               ></Form>
             </div>
 
-            {/* <ClampResult fontSize="1.4rem"></ClampResult> */}
+            <ClampResult
+              fontSize="clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)"
+              borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+            ></ClampResult>
           </div>
 
           <div className="w-full h-full flex-[6%] xs:flex-[5%] border-l-2 border-white">
