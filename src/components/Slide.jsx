@@ -51,7 +51,7 @@ function Slide()
             ref={slideRef}
             className="w-dvw absolute z-1 scale-x-101"
             style={{
-                top: slide === "How It Works" ? `${yPos}px` : "0",
+                top: slide === "How It Works" ? `${yPos}px` : "-2px",
                 transition: !isResizing ? "top 0.3s ease-in-out" : "none"
             }}
         >
@@ -67,37 +67,103 @@ function Slide()
             ></Toggle>
             
             <div 
-                className="flex overflow-scroll flex-col gap-10 p-6 bg-graphite-900 relative"
+                className="flex overflow-scroll flex-col bg-graphite-900 relative"
                 style={{
-                    height: `${height}px`
+                    height: `${height}px`,
+                    padding: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                    gap: "clamp(0.5rem, 0.212rem + 1.441vw, 2.5rem)"
                 }}
             >
-                <section className="flex pb-10 border-b-4 border-white text-white text-xl z-1">
+                <section 
+                    className="flex border-white text-white z-1"
+                    style={{
+                        paddingBottom: "clamp(0.5rem, 0.212rem + 1.441vw, 2.5rem)",
+                        borderBottomWidth: "clamp(2px, 1.712px + 0.09vw, 4px)"
+                    }}
+                >
                     <aside className="flex items-start w-full h-full flex-[40%]">
-                        <h1 className="sticky top-0 text-4xl font-bold">What is <code>clamp()</code> and Why Use It?</h1>
+                        <h1 
+                            className="sticky top-0 font-bold"
+                            style={{
+                                fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
+                            }}
+                        >
+                            What is <code>clamp()</code> and Why Use It?
+                        </h1>
                     </aside>
 
-                    <article className="flex flex-col flex-[60%] space-y-6">
-                        <p>The CSS <span className="underline underline-offset-2 font-bold">clamp()</span> function allows you to create responsive values that adapt to the user's screen size without relying on <span className="font-bold">media queries</span>. It takes three values:</p>
+                    <article className="flex flex-col flex-[60%]">
+                        <p
+                            style={{
+                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                            }}
+                        >
+                            The CSS <span className="underline underline-offset-2 font-bold">clamp()</span> function allows you to create responsive values that adapt to the user's screen size without relying on <span className="font-bold">media queries</span>. It takes three values:
+                        </p>
 
-                        <section className="border-2 border-graphite-300">
-                            <h2 className="p-2 text-xs border-b-2 border-graphite-300 bg-graphite-700">Clamp() Function</h2>
-                            <code className="block p-5 text-xl bg-graphite-800">clamp(min, preferred, max)</code>
+                        <section 
+                            className="border-graphite-300"
+                            style={{
+                                marginBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                borderWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
+                            }}
+                        >
+                            <h2 
+                                className="border-graphite-300 bg-graphite-700"
+                                style={{
+                                    padding: "clamp(0.3rem, 0.257rem + 0.216vw, 0.6rem)",
+                                    fontSize:"clamp(0.3rem, 0.235rem + 0.324vw, 0.75rem)",
+                                    borderBottomWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
+                                }}
+                            >
+                                Clamp() Function
+                            </h2>
+
+                            <code 
+                                className="block text-xl bg-graphite-800"
+                                style={{
+                                    padding: "clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)",
+                                    fontSize:"clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)"
+                                }}
+                            >
+                                clamp(min, preferred, max)
+                            </code>
                         </section>
 
-                        <ul className="text-lg indent-6">
+                        <ul 
+                            style={{
+                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                textIndent: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                                fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
+                            }}
+                        >
                             <li><span className="font-bold">• min</span>: the smallest value allowed (e.g., <code>16px</code>)</li>
                             <li><span className="font-bold">• preferred</span>: the fluid value, often based on <code>vw</code></li>
                             <li><span className="font-bold">• max</span>: the largest value allowed (e.g., <code>24px</code>)</li>
                         </ul>
 
-                        <p>As the viewport changes, the preferred value adjusts, but it never goes below the min or above the max.</p>
+                        <p
+                            style={{
+                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                            }}
+                        >
+                            As the viewport changes, the preferred value adjusts, but it never goes below the min or above the max.
+                        </p>
                     </article>
                 </section>
 
                 <section className="flex pb-10 border-b-4 border-white text-white text-xl z-1">
                     <aside className="flex items-start w-full h-full flex-[40%]">
-                        <h1 className="sticky top-0 text-4xl font-bold">Why It's Useful</h1>
+                        <h1 
+                            className="sticky top-0 font-bold"
+                            style={{
+                                fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
+                            }}
+                        >
+                            Why It's Useful
+                        </h1>
                     </aside>
 
                     <article className="flex flex-col flex-[60%] space-y-6">
@@ -133,7 +199,14 @@ function Slide()
 
                 <section className="flex pb-10 text-white text-xl z-1">
                     <aside className="flex items-start w-full h-full flex-[40%]">
-                        <h1 className="sticky top-0 text-4xl font-bold">How to Use Clampli</h1>
+                        <h1 
+                            className="sticky top-0 font-bold"
+                            style={{
+                                fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
+                            }}
+                        >
+                            How to Use Clampli
+                        </h1>
                     </aside>
 
                     <article className="flex flex-col flex-[60%] space-y-6">
