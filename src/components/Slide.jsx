@@ -83,7 +83,7 @@ function Slide()
                 >
                     <aside className="flex items-start w-full h-full flex-[40%]">
                         <h1 
-                            className="sticky top-0 font-bold"
+                            className="sticky top-0 font-bold pr-3"
                             style={{
                                 fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
                             }}
@@ -102,7 +102,7 @@ function Slide()
                             The CSS <span className="underline underline-offset-2 font-bold">clamp()</span> function allows you to create responsive values that adapt to the user's screen size without relying on <span className="font-bold">media queries</span>. It takes three values:
                         </p>
 
-                        <section 
+                        <div 
                             className="border-graphite-300"
                             style={{
                                 marginBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
@@ -129,12 +129,12 @@ function Slide()
                             >
                                 clamp(min, preferred, max)
                             </code>
-                        </section>
+                        </div>
 
                         <ul 
                             style={{
                                 paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
-                                textIndent: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                                paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
                                 fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
                             }}
                         >
@@ -154,10 +154,16 @@ function Slide()
                     </article>
                 </section>
 
-                <section className="flex pb-10 border-b-4 border-white text-white text-xl z-1">
+                <section 
+                    className="flex border-white text-white z-1"
+                    style={{
+                        paddingBottom: "clamp(0.5rem, 0.212rem + 1.441vw, 2.5rem)",
+                        borderBottomWidth: "clamp(2px, 1.712px + 0.09vw, 4px)"
+                    }}
+                >
                     <aside className="flex items-start w-full h-full flex-[40%]">
                         <h1 
-                            className="sticky top-0 font-bold"
+                            className="sticky top-0 font-bold pr-3"
                             style={{
                                 fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
                             }}
@@ -166,34 +172,93 @@ function Slide()
                         </h1>
                     </aside>
 
-                    <article className="flex flex-col flex-[60%] space-y-6">
-                        <p>Responsive design often means juggling multiple breakpoints with media queries to scale font sizes, spacing, and layout elements.<code className="font-bold"> clamp()</code> simplifies this by:</p>
+                    <article className="flex flex-col flex-[60%]">
+                        <p
+                            style={{
+                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                            }}
+                        >
+                            Responsive design often means juggling multiple breakpoints with media queries to scale font sizes, spacing, and layout elements.<code className="font-bold"> clamp()</code> simplifies this by:
+                        </p>
 
-                        <ul className="text-lg indent-6">
+                        <ul
+                            style={{
+                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                                fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
+                            }}
+                        >
                             <li><span className="font-bold">•</span> Automatically adjusting sizes fluidly between a defined range</li>
                             <li><span className="font-bold">•</span> Reducing or eliminating the need for media queries</li>
                             <li><span className="font-bold">•</span> Keeping your CSS cleaner and easier to maintain</li>
                         </ul>
 
-                        <section>
-                        <h2 className="text-2xl font-bold">Example</h2>
+                        <h2 
+                            className="font-bold"
+                            style={{
+                                fontSize: "clamp(0.8rem, 0.699rem + 0.505vw, 1.5rem)"
+                            }}
+                        >
+                            Example
+                        </h2>
 
-                        <div className="mt-2 border-2 border-graphite-300">
-                            <h3 className="p-2 text-xs border-b-2 border-graphite-300 bg-graphite-700">css</h3>
-                            <code className="block p-5 text-xl bg-graphite-800">font-size: clamp(16px, 2vw, 24px);</code>
+                        <div 
+                            className="border-graphite-300"
+                            style={{
+                                marginBottom: "clamp(0.4rem, 0.198rem + 1.009vw, 1.8rem)",
+                                borderWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
+                            }}
+                        >
+                            <h2 
+                                className="border-graphite-300 bg-graphite-700"
+                                style={{
+                                    padding: "clamp(0.3rem, 0.257rem + 0.216vw, 0.6rem)",
+                                    fontSize:"clamp(0.3rem, 0.235rem + 0.324vw, 0.75rem)",
+                                    borderBottomWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
+                                }}
+                            >
+                                css
+                            </h2>
+
+                            <code 
+                                className="block text-xl bg-graphite-800"
+                                style={{
+                                    padding: "clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)",
+                                    fontSize:"clamp(0.45rem, 0.299rem + 0.757vw, 1.5rem)"
+                                }}
+                            >
+                                font-size: clamp(16px, 2vw, 24px);
+                            </code>
                         </div>
-                        </section>
 
-                        <p>This means:</p>
+                        <p
+                            style={{
+                                fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                            }}
+                        >
+                            This means:
+                        </p>
 
-                        <ul className="text-lg indent-6 -mt-4">
+                        <ul
+                            style={{
+                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
+                                fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
+                            }}
+                        >
                             <li><span className="font-bold">•</span> The text will never be smaller than <code>16px</code></li>
                             <li><span className="font-bold">•</span> It will grow based on <code>2vw</code> as the screen gets larger</li>
                             <li><span className="font-bold">•</span> But it will never exceed <code>24px</code></li>
                         </ul>
 
-                        <p>You can use <code className="font-bold">clamp()</code> for font sizes, <span className="font-bold">padding, margins, widths, and more</span>. 
-                        Making it a powerful tool for responsive design.</p>
+                        <p
+                            style={{
+                                fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
+                            }}
+                        >
+                            You can use <code className="font-bold">clamp()</code> for font sizes, <span className="font-bold">padding, margins, widths, and more</span>. Making it a powerful tool for responsive design.
+                        </p>
                     </article>
                 </section>
 
