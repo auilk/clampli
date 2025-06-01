@@ -5,13 +5,14 @@
  * @param {Object} props - Component props.
  * @param {string} [props.fontSize="1rem"] - CSS font size of the toggle text.
  * @param {string} [props.padding="1rem"] - CSS padding inside the toggle button.
+ * @param {string} [props.borderWidth="2px"] - CSS border width around the Toggle container (e.g., "1px", "0.5rem").
  * @param {string} [props.firstOption="option01"] - Label for the first toggle option.
  * @param {string} [props.secondOption="option02"] - Label for the second toggle option.
  * @param {boolean} [props.vertical=false] - If true, toggle displays vertically; otherwise horizontally.
  * @param {boolean} [props.fullWidth=false] - If true, toggle stretches to fill the container width.
  * @returns {JSX.Element} The rendered toggle button component.
  */
-function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", secondOption = "option02", vertical = false, fullWidth = false, value, onToggle})
+function Toggle({fontSize = "1rem", padding = "1rem", borderWidth = "2px", firstOption = "option01", secondOption = "option02", vertical = false, fullWidth = false, value, onToggle})
 {    
     const longest = firstOption.length > secondOption.length ? firstOption : secondOption;
 
@@ -22,7 +23,8 @@ function Toggle({fontSize = "1rem", padding = "1rem",firstOption = "option01", s
             style={{
                 width: fullWidth ? "100%" : "fit-content",
                 flexDirection: vertical ? "column" : "row",
-                padding: padding
+                padding: padding,
+                borderWidth: `${borderWidth} ${borderWidth} ${borderWidth} 0`
             }}
         >
             <svg

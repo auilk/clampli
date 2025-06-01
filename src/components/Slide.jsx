@@ -49,7 +49,7 @@ function Slide()
     return(
         <section 
             ref={slideRef}
-            className="absolute z-1"
+            className="w-dvw absolute z-1 scale-x-101"
             style={{
                 top: slide === "How It Works" ? `${yPos}px` : "0",
                 transition: !isResizing ? "top 0.3s ease-in-out" : "none"
@@ -58,10 +58,11 @@ function Slide()
             <Toggle
                 value={slide}
                 onToggle={setSlide}
+                padding="0.4rem"
+                borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+                fontSize="clamp(0.5rem, 0.428rem + 0.36vw, 1rem)"
                 firstOption="How It Works"
                 secondOption="Calculator"
-                padding={0}
-                vertical={false}
                 fullWidth={true}
             ></Toggle>
             

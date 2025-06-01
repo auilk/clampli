@@ -58,12 +58,12 @@ function App()
       </header>
 
       <main className="flex relative flex-col flex-grow min-h-0">
-        <section className="flex flex-grow pb-11 min-h-0">
+        <section className="flex flex-grow pb-6.5 min-h-0">
           <div className="w-full h-full flex-[6%] xs:flex-[5%] border-r-2 border-white">
             <DottedBG></DottedBG>
           </div>
           
-          <div className="flex flex-col items-center justify-around h-full px-0 flex-[90%]">
+          <div className="flex flex-col items-center justify-around h-full flex-[90%]">
             <div 
               className="flex xs:flex-row flex-col justify-center"
               style={{
