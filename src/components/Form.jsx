@@ -44,6 +44,7 @@ function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4
                     width="clamp(8rem, 5.982rem + 10.09vw, 22rem)"
                     fontSize="clamp(0.5rem, 0.399rem + 0.505vw, 1.2rem)"
                     borderWidth={borderWidth}
+                    unit={unit}
                 ></InputField>
 
                 <InputField
@@ -51,6 +52,7 @@ function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4
                     width="clamp(8rem, 5.982rem + 10.09vw, 22rem)"
                     fontSize="clamp(0.5rem, 0.399rem + 0.505vw, 1.2rem)"
                     borderWidth={borderWidth}
+                    unit={unit}
                 ></InputField>
             </div>
         </form>
