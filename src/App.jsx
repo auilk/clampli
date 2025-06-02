@@ -7,9 +7,16 @@ import DottedBG from "./components/DottedBG";
 import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
 import Slide from "./components/Slide";
+import useSelectorStore from "./store/selector-store";
 
 function App()
 {
+  const viewportUnit = useSelectorStore((state) => state.viewportUnit);
+  const setViewportUnit = useSelectorStore((state) => state.setViewportUnit);
+
+  const elementUnit = useSelectorStore((state) => state.elementUnit);
+  const setElementUnit = useSelectorStore((state) => state.setElementUnit);
+
   return (
     <>
       <header className="flex flex-col">
@@ -83,6 +90,8 @@ function App()
                   padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
                   padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
                   borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+                  unit={elementUnit}
+                  onUnitChange={setElementUnit}
                 ></Form>
 
                 <Form 
@@ -92,6 +101,8 @@ function App()
                   padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
                   padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
                   borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+                  unit={viewportUnit}
+                  onUnitChange={setViewportUnit}
                 ></Form>
               </div>
 

@@ -1,3 +1,4 @@
+import useSelectorStore from "../store/selector-store.js";
 import InputField from "./InputField.jsx"
 import UnitSelector from "./UnitSelector.jsx";
 
@@ -12,9 +13,11 @@ import UnitSelector from "./UnitSelector.jsx";
  * @param {string} [props.padX="2rem"] - Horizontal padding of the form.
  * @param {string} [props.padY="4rem"] - Vertical padding of the form.
  * @param {string} [props.borderWidth="2px"] - CSS border width around the Form container (e.g., "1px", "0.5rem").
+ * @param {string} props.unit - The current selected unit (e.g., "px" or "rem") from Zustand state.
+ * @param {(unit: string) => void} props.onUnitChange - Callback to update the selected unit in Zustand state.
  * @returns {JSX.Element} The rendered form for clamp() value generation.
  */
-function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4rem", borderWidth = "2px"})
+function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4rem", borderWidth = "2px", unit, onUnitChange})
 {
     return(
         <form 
@@ -24,6 +27,8 @@ function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4
             <UnitSelector 
                 fontSize="clamp(0.4rem, 0.355rem + 0.223vw, 0.71rem)"
                 borderWidth={borderWidth}
+                value={unit}
+                onSelect={onUnitChange}
             ></UnitSelector>
 
             <div 
