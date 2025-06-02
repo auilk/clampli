@@ -9,6 +9,10 @@ import UnitSelector from "./UnitSelector.jsx";
  * @param {string} [props.className] - Optional CSS class for styling the form container.
  * @param {string} props.label01 - Label for the minimum size input.
  * @param {string} props.label02 - Label for the maximum size input.
+ * @param {number} props.value01 - Zustand state for the first input.
+ * @param {number} props.value02 - Zustand state for the second input.
+ * @param {(value01: number) => void} props.setValue01 - Callback to update the current value01 in Zustand state.
+ * @param {(value02: number) => void} props.setValue02 - Callback to update the current value02 size in Zustand state.
  * @param {string} [props.gap="5px"] - CSS gap between the InputField components (e.g., "50px", "8rem")
  * @param {string} [props.padX="2rem"] - Horizontal padding of the form.
  * @param {string} [props.padY="4rem"] - Vertical padding of the form.
@@ -17,7 +21,7 @@ import UnitSelector from "./UnitSelector.jsx";
  * @param {(unit: string) => void} props.onUnitChange - Callback to update the selected unit in Zustand state.
  * @returns {JSX.Element} The rendered form for clamp() value generation.
  */
-function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4rem", borderWidth = "2px", unit, onUnitChange})
+function Form({className, label01, label02, value01, value02, setValue01, setValue02, gap="50px", padX = "2rem", padY = "4rem", borderWidth = "2px", unit, onUnitChange})
 {
     return(
         <form 
@@ -45,6 +49,8 @@ function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4
                     fontSize="clamp(0.5rem, 0.399rem + 0.505vw, 1.2rem)"
                     borderWidth={borderWidth}
                     unit={unit}
+                    value={value01}
+                    setValue={setValue01}
                 ></InputField>
 
                 <InputField
@@ -53,6 +59,8 @@ function Form({className, label01, label02, gap="50px", padX = "2rem", padY = "4
                     fontSize="clamp(0.5rem, 0.399rem + 0.505vw, 1.2rem)"
                     borderWidth={borderWidth}
                     unit={unit}
+                    value={value02}
+                    setValue={setValue02}
                 ></InputField>
             </div>
         </form>

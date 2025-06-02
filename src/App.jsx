@@ -8,6 +8,7 @@ import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
 import Slide from "./components/Slide";
 import useSelectorStore from "./store/selector-store";
+import useResultStore from "./store/result-store";
 
 function App()
 {
@@ -16,6 +17,18 @@ function App()
 
   const elementUnit = useSelectorStore((state) => state.elementUnit);
   const setElementUnit = useSelectorStore((state) => state.setElementUnit);
+
+  const minViewport = useResultStore((state) => state.minViewport);
+  const setMinViewport = useResultStore((state) => state.setMinViewport);
+
+  const maxViewport = useResultStore((state) => state.maxViewport);
+  const setMaxViewport = useResultStore((state) => state.setMaxViewport);
+  
+  const minElement = useResultStore((state) => state.minElement);
+  const setMinElement = useResultStore((state) => state.setMinElement);
+
+  const maxElement = useResultStore((state) => state.maxElement);
+  const setMaxElement = useResultStore((state) => state.setMaxElement);
 
   return (
     <>
@@ -86,23 +99,60 @@ function App()
                 <Form 
                   label01="Min Font Size" 
                   label02="Max Font Size"
+                  value01={minElement}
+                  value02={maxElement}
+                  setValue01={setMinElement}
+                  setValue02={setMaxElement}
                   gap="clamp(20px, 12.793px + 2.252vw, 70px)"
                   padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
                   padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
                   borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
                   unit={elementUnit}
-                  onUnitChange={setElementUnit}
+                  onUnitChange={(unit) => 
+                  {
+                    if (unit === elementUnit) return; // no-op if unchanged
+
+                    setElementUnit(unit);
+
+                    if (unit === "rem") {
+                      setMinElement(minElement / 16);
+                      setMaxElement(maxElement / 16);
+                    } else {
+                      setMinElement(minElement * 16);
+                      setMaxElement(maxElement * 16);
+                    }
+                  }}
                 ></Form>
 
                 <Form 
                   label01="Min Viewport Size" 
                   label02="Max Viewport Size"
+                  value01={minViewport}
+                  value02={maxViewport}
+                  setValue01={setMinViewport}
+                  setValue02={setMaxViewport}
                   gap="clamp(20px, 12.793px + 2.252vw, 70px)"
                   padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
                   padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
                   borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
                   unit={viewportUnit}
-                  onUnitChange={setViewportUnit}
+                  onUnitChange={(unit) => 
+                  {
+                    if (unit === viewportUnit) return;
+
+                    setViewportUnit(unit);
+
+                    if (unit === "rem")
+                    {
+                      setMinViewport(minViewport / 16);
+                      setMaxViewport(maxViewport / 16);
+                    }
+                    else
+                    {
+                      setMinViewport(minViewport * 16);
+                      setMaxViewport(maxViewport * 16);
+                    }
+                  }}
                 ></Form>
               </div>
 

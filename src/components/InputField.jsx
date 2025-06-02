@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import useResultStore from "../store/result-store";
+import useClampGenerator from "../hook/clamp-generator";
 
 /**
  * A styled input field component with customizable label and appearance.
@@ -10,20 +12,27 @@ import { useState } from "react";
  * @param {string} [props.textColor] - CSS text color.
  * @param {string} [props.borderColor] - CSS border color.
  * @param {string} props.unit - The current selected unit (e.g., "px" or "rem") from Zustand state.
+ * @param {number} props.value - The current viewport/element size from Zustand state.
+ * @param {(value: number) => void} props.setValue - Callback to update the current viewport/element size in Zustand state.
  * @returns {JSX.Element} The rendered input field element.
  */
-function InputField({label = "label", width = "20rem", fontSize = "1rem", textColor, borderColor, borderWidth = "2px", unit})
+function InputField({label = "label", width = "20rem", fontSize = "1rem", textColor, borderColor, borderWidth = "2px", unit, value, setValue})
 {
-    const [value, SetValue] = useState("");
-    const [isFocused, SetIsFocused] = useState(false);
-
     const HandleChange = (event) =>
     {
         if (!isNaN(event.target.value))
         {
-            SetValue(event.target.value);
+            setValue(event.target.value);
         }
     };
+
+    const generator = useClampGenerator();
+    const setClampResult = useResultStore((state) => state.setClampResult);
+    
+    useEffect(() =>
+    {
+        setClampResult(generator);
+    }, [generator]);
 
     return (
         <div className="flex">
@@ -33,8 +42,8 @@ function InputField({label = "label", width = "20rem", fontSize = "1rem", textCo
                     htmlFor={label}
                     style={{
                         color: borderColor,
-                        top: isFocused === true ? "-2px" : "50%",
-                        fontSize: isFocused === true ? `calc(${fontSize} * 0.75)` : fontSize,
+                        top: "-2px",
+                        fontSize: `calc(${fontSize} * 0.75)`,
                         paddingLeft: "clamp(0.2rem, 0.085rem + 0.577vw, 1rem)",
                         paddingRight: "clamp(0.2rem, 0.085rem + 0.577vw, 1rem)"
                     }}
@@ -46,10 +55,8 @@ function InputField({label = "label", width = "20rem", fontSize = "1rem", textCo
                     className="text-white outline-0" 
                     id={label} 
                     type="text" 
-                    value={value} 
+                    value={value}
                     onChange={HandleChange}
-                    onFocus={() => SetIsFocused(true)}
-                    onBlur={() => SetIsFocused(false)}
                     style={{
                         width: width,
                         fontSize: fontSize,

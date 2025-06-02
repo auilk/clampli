@@ -10,7 +10,7 @@ import TextOutline from "./TextOutline";
  * @param {(unit: string) => void} props.onSelect - Callback to update the selected unit in Zustand state.
  * @returns {JSX.Element} The rendered unit selector element.
  */
-    function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
+function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
 {
     return (
         <div 
@@ -27,7 +27,7 @@ import TextOutline from "./TextOutline";
                     flex: value === "px" ? "90%" : "10%",
                     borderRightWidth: borderWidth
                 }}
-                onClick={() => onSelect(value === "px" ? "rem" : "px")}
+                onClick={() => onSelect("px")}
             >
                 <span 
                     className="absolute transition-all duration-500 pointer-events-none z-1"
@@ -66,7 +66,7 @@ import TextOutline from "./TextOutline";
                     flex: value === "rem" ? "90%" : "10%",
                     borderRightWidth: borderWidth
                 }}
-                onClick={() => onSelect(value === "px" ? "rem" : "px")}
+                onClick={() => onSelect("rem")}
             >
                 <span 
                     className="absolute transition-all duration-500 pointer-events-none z-1"

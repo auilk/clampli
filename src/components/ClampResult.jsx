@@ -1,3 +1,4 @@
+import useResultStore from "../store/result-store";
 import useSelectorStore from "../store/selector-store";
 import useToggleStore from "../store/toggle-store";
 import Toggle from "./Toggle";
@@ -18,6 +19,11 @@ function ClampResult({fontSize = "1rem", borderWidth = "2px"})
 
     const resultUnit = useSelectorStore((state) => (state.resultUnit));
     const setResultUnit = useSelectorStore((state) => (state.setResultUnit));
+
+    const minElement = useResultStore((state) => state.minElement);
+    const maxElement = useResultStore((state) => state.maxElement);
+
+    const clampResult = useResultStore((state) => state.clampResult);
 
     return(
         <div className="w-full">
@@ -48,7 +54,7 @@ function ClampResult({fontSize = "1rem", borderWidth = "2px"})
                             fontSize: fontSize,
                         }}
                     >
-                        clamp(1rem, 0.679rem + 1.282vw, 1.5rem)
+                        {clampResult}
                     </code>
 
                     <svg
