@@ -67,7 +67,7 @@ function Slide()
             ></Toggle>
             
             <div 
-                className="flex overflow-scroll flex-col bg-graphite-900 relative"
+                className="flex overflow-scroll scrollbar-hidden flex-col bg-graphite-900 relative"
                 style={{
                     height: `${height}px`,
                     padding: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
@@ -77,7 +77,7 @@ function Slide()
                 <section 
                     className="flex border-white text-white z-1"
                     style={{
-                        paddingBottom: "clamp(0.5rem, 0.212rem + 1.441vw, 2.5rem)",
+                        paddingBottom: "clamp(0.4rem, 0.184rem + 1.081vw, 1.9rem)",
                         borderBottomWidth: "clamp(2px, 1.712px + 0.09vw, 4px)"
                     }}
                 >
@@ -95,7 +95,7 @@ function Slide()
                     <article className="flex flex-col flex-[60%]">
                         <p
                             style={{
-                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                             }}
                         >
@@ -105,7 +105,7 @@ function Slide()
                         <div 
                             className="border-graphite-300"
                             style={{
-                                marginBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                marginBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 borderWidth: "clamp(1px, 0.614px + 0.12vw, 3px)"
                             }}
                         >
@@ -121,7 +121,7 @@ function Slide()
                             </h2>
 
                             <code 
-                                className="block text-xl bg-graphite-800"
+                                className="block bg-graphite-800"
                                 style={{
                                     padding: "clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)",
                                     fontSize:"clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)"
@@ -133,7 +133,7 @@ function Slide()
 
                         <ul 
                             style={{
-                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
                                 fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
                             }}
@@ -145,7 +145,6 @@ function Slide()
 
                         <p
                             style={{
-                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
                                 fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                             }}
                         >
@@ -157,7 +156,7 @@ function Slide()
                 <section 
                     className="flex border-white text-white z-1"
                     style={{
-                        paddingBottom: "clamp(0.5rem, 0.212rem + 1.441vw, 2.5rem)",
+                        paddingBottom: "clamp(0.4rem, 0.184rem + 1.081vw, 1.9rem)",
                         borderBottomWidth: "clamp(2px, 1.712px + 0.09vw, 4px)"
                     }}
                 >
@@ -175,7 +174,7 @@ function Slide()
                     <article className="flex flex-col flex-[60%]">
                         <p
                             style={{
-                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                             }}
                         >
@@ -184,7 +183,7 @@ function Slide()
 
                         <ul
                             style={{
-                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
                                 fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
                             }}
@@ -197,6 +196,7 @@ function Slide()
                         <h2 
                             className="font-bold"
                             style={{
+                                paddingBottom: "clamp(0.2rem, 0.027rem + 0.865vw, 1.4rem)",
                                 fontSize: "clamp(0.8rem, 0.699rem + 0.505vw, 1.5rem)"
                             }}
                         >
@@ -234,6 +234,7 @@ function Slide()
 
                         <p
                             style={{
+                                paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                             }}
                         >
@@ -242,7 +243,7 @@ function Slide()
 
                         <ul
                             style={{
-                                paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                 paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
                                 fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
                             }}
@@ -276,7 +277,7 @@ function Slide()
                                 fontSize: "clamp(1rem, 0.697rem + 1.514vw, 3.1rem)"
                             }}
                         >
-                            How to Use Clampli
+                            How to Use .//CLAMPLI
                         </h1>
                     </aside>
 
@@ -286,7 +287,7 @@ function Slide()
                                 fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                             }}
                         >
-                            Clampli helps you generate the ideal <code>clamp()</code> value based on your design needs. No math and no guesswork.
+                            .//CLAMPLI helps you generate the ideal <code>clamp()</code> value based on your design needs. No math and no guesswork.
                         </p>
 
                         <section>
@@ -303,16 +304,16 @@ function Slide()
                             
                             <p
                                 style={{
-                                    paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                    paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                     fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                                 }}
                             >
-                                Tell Clampli the screen sizes you want to support:
+                                Tell .//CLAMPLI the screen sizes you want to support:
                             </p>
 
                             <ul
                                 style={{
-                                    paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                    paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                     paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
                                     fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
                                 }}
@@ -344,6 +345,7 @@ function Slide()
 
                             <p
                                 style={{
+                                    paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                     fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                                 }}
                             >
@@ -352,7 +354,7 @@ function Slide()
 
                             <ul
                                 style={{
-                                    paddingBottom: "clamp(0.5rem, 0.284rem + 1.081vw, 2rem)",
+                                    paddingBottom: "clamp(0.3rem, 0.113rem + 0.937vw, 1.6rem)",
                                     paddingLeft: "clamp(0.5rem, 0.356rem + 0.721vw, 1.5rem)",
                                     fontSize:"clamp(0.5rem, 0.41rem + 0.45vw, 1.125rem)"
                                 }}
@@ -366,7 +368,7 @@ function Slide()
                                     fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                                 }}
                             >
-                                Clampli will calculate a responsive formula that smoothly interpolates between these sizes based on the screen width.
+                                .//CLAMPLI will calculate a responsive formula that smoothly interpolates between these sizes based on the screen width.
                             </p>
                         </section>
 
@@ -387,7 +389,7 @@ function Slide()
                                     fontSize: "clamp(0.6rem, 0.47rem + 0.649vw, 1.5rem)"
                                 }}
                             >
-                                Click Generate, and Clampli will output the CSS <code>clamp()</code> function you can copy and paste into your code.
+                                .//CLAMPLI will automatically output the CSS <code>clamp()</code> function you can copy and paste into your code.
                             </p>
 
                             <p

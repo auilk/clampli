@@ -15,7 +15,7 @@ function App()
       <header className="flex flex-col">
         <NavBar 
           gap="clamp(5px, 4.286px + 0.223vw, 10px)"
-          padding="clamp(0rem, -0.096rem + 0.482vw, 0.5rem)"
+          padding="clamp(0.1rem, 0.028rem + 0.36vw, 0.6rem)"
           borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
         >
           <NavLink 
@@ -65,34 +65,41 @@ function App()
           
           <div className="flex flex-col items-center justify-around h-full flex-[90%]">
             <div 
-              className="flex xs:flex-row flex-col justify-center"
+              className="w-[90%] flex flex-col items-center justify-center"
               style={{
-                gap: "clamp(20px, -49.189px + 21.622vw, 500px)"
+                gap: "clamp(1.25rem, 0.709rem + 2.703vw, 5rem)"
               }}
             >
-              <Form 
-                label01="Min Font Size" 
-                label02="Max Font Size"
-                gap="clamp(20px, 12.793px + 2.252vw, 70px)"
-                padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
-                padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
-                borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
-              ></Form>
+              <div 
+                className="flex xs:flex-row flex-col justify-center"
+                style={{
+                  gap: "clamp(20px, -49.189px + 21.622vw, 500px)"
+                }}
+              >
+                <Form 
+                  label01="Min Font Size" 
+                  label02="Max Font Size"
+                  gap="clamp(20px, 12.793px + 2.252vw, 70px)"
+                  padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
+                  padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
+                  borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+                ></Form>
 
-              <Form 
-                label01="Min Viewport Size" 
-                label02="Max Viewport Size"
-                gap="clamp(20px, 12.793px + 2.252vw, 70px)"
-                padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
-                padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
+                <Form 
+                  label01="Min Viewport Size" 
+                  label02="Max Viewport Size"
+                  gap="clamp(20px, 12.793px + 2.252vw, 70px)"
+                  padX="clamp(1rem, 0.784rem + 1.081vw, 2.5rem)"
+                  padY="clamp(2rem, 1.036rem + 4.819vw, 7rem)"
+                  borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+                ></Form>
+              </div>
+
+              <ClampResult
+                fontSize="clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)"
                 borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
-              ></Form>
+              ></ClampResult>
             </div>
-
-            <ClampResult
-              fontSize="clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)"
-              borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
-            ></ClampResult>
           </div>
 
           <div className="w-full h-full flex-[6%] xs:flex-[5%] border-l-2 border-white">

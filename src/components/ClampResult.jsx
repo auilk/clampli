@@ -16,7 +16,7 @@ function ClampResult({fontSize = "1rem", borderWidth = "2px"})
     const setFormat = useToggleStore((state) => (state.setFormat));
 
     return(
-        <div className="w-[80%]">
+        <div className="w-full">
             <UnitSelector 
                 fontSize="clamp(0.4rem, 0.355rem + 0.223vw, 0.71rem)"
                 borderWidth={borderWidth}
