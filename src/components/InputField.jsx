@@ -69,19 +69,26 @@ function InputField({label = "label", width = "20rem", fontSize = "1rem", textCo
                     }}
                 />
             </div>
-            <div className="flex justify-center items-center border-[2px_2px_2px_0px] border-white overflow-hidden relative">
-                <span className="opacity-0 px-1">REM</span>
+            <div
+                className="flex justify-center items-center bg-white border-white overflow-hidden relative"
+                style={{
+                    borderWidth: ` ${borderWidth} ${borderWidth} ${borderWidth} 0px`
+                }}
+            >
+                <span className="opacity-0 px-0">REM</span>
                 <span 
-                    className="text-white font-bold absolute left-1/2 -translate-1/2 transition-[top] duration-500"
+                    className="text-graphite-900 font-bold absolute left-1/2 -translate-1/2 transition-[top] duration-500"
                     style={{
-                        top: unit === "px" ? "50%" : "150%"
+                        top: unit === "px" ? "50%" : "150%",
+                        fontSize: `calc(${fontSize} * 0.8)`
                     }}
                 >PX</span>
 
                 <span 
-                    className="text-white font-bold absolute left-1/2 -translate-1/2 transition-[top] duration-500"
+                    className="text-graphite-900 font-bold absolute left-1/2 -translate-1/2 transition-[top] duration-500"
                     style={{
-                        top: unit === "rem" ? "50%" : "150%"
+                        top: unit === "rem" ? "50%" : "150%",
+                        fontSize: `calc(${fontSize} * 0.8)`
                     }}
                 >REM</span>
             </div>

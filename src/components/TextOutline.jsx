@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Renders text with an outlined stroke effect.
@@ -15,6 +15,8 @@ function TextOutline({className, text, fontSize = "1rem", outlineColor = "black"
 {
     const textRef = useRef(null);
     const svgRef = useRef(null);
+
+    const [isResizing, SetIsResizing] = useState(false);
 
     useEffect(() =>
     {
@@ -33,7 +35,19 @@ function TextOutline({className, text, fontSize = "1rem", outlineColor = "black"
         bbox = text.getBBox();
         text.setAttribute('y', `${-bbox.y}`);
 
-    }, [text, fontSize, outlineColor, outlineWidth]);
+        const ResizeCallback = () =>
+        {
+            SetIsResizing(!isResizing); // this just a hack to fix the font size    
+        }
+
+        window.addEventListener("resize", ResizeCallback);
+
+        return () =>
+        {
+            window.removeEventListener("resize", ResizeCallback);
+        }
+
+    }, [text, fontSize, outlineColor, outlineWidth, isResizing]);
 
     return(
         <svg

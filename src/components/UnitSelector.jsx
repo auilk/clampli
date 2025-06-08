@@ -20,12 +20,14 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
             }}
         >
             <button 
-                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
+                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 bg-graphite-900 hover:bg-graphite-500 cursor-pointer"
                 style={{
                     padding: `calc(1.6 * ${fontSize})`,
                     fontSize: fontSize,
                     flex: value === "px" ? "90%" : "10%",
-                    borderRightWidth: borderWidth
+                    borderRightWidth: borderWidth,
+                    backgroundColor: value === "px" ? "white" : "#0A0A0A"
+
                 }}
                 onClick={() => onSelect("px")}
             >
@@ -35,7 +37,9 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
                         paddingRight: value === "px" ? "0.75rem" : "0rem",
                         top: value === "px" ? "0" : "50%",
                         right: value === "px" ? "0" : "50%",
-                        transform: value === "px" ? "translate(0%, 0%)" : "translate(50%, -50%)"
+                        transform: value === "px" ? "translate(0%, 0%)" : "translate(50%, -50%)",
+                        color: value === "px" ? "#0A0A0A" : "white"
+
                     }}
                 >
                     PX
@@ -45,26 +49,25 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
                     className="absolute -bottom-2 -left-7 transition-all w-fit h-fit"
                     style={{
                         opacity: value === "px" ? "1" : "0",
-                        maskImage: 'linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0) 100%)',
-                        WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.3) 75%, transparent 100%)'
                     }}
                 >
                     <TextOutline
                         text={"UNITS ARE IN PIXELS"} 
                         fontSize={`calc(${fontSize} * 3.2)`}
-                        outlineColor={"white"} 
-                        outlineWidth={`calc(${fontSize} * 0.1)`}
+                        outlineColor={"#0A0A0A"} 
+                        outlineWidth={`calc(${fontSize} * 0.15)`}
                     ></TextOutline>
                 </div>
             </button>
 
             <button 
-                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 bg-graphite-900 hover:bg-graphite-500"
+                className="flex overflow-hidden relative font-bold text-white transition-all duration-500 bg-graphite-900 cursor-pointer"
                 style={{
                     padding: `calc(1.6 * ${fontSize})`,
                     fontSize: fontSize,
                     flex: value === "rem" ? "90%" : "10%",
-                    borderRightWidth: borderWidth
+                    borderRightWidth: borderWidth,
+                    backgroundColor: value === "rem" ? "white" : "#0A0A0A"
                 }}
                 onClick={() => onSelect("rem")}
             >
@@ -73,7 +76,8 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
                     style={{
                         top: value === "rem" ? "0" : "50%",
                         left: value === "rem" ? "10px" : "50%",
-                        transform: value === "rem" ? "translate(0%, 0%)" : "translate(-50%, -50%)"
+                        transform: value === "rem" ? "translate(0%, 0%)" : "translate(-50%, -50%)",
+                        color: value === "rem" ? "#0A0A0A" : "white"
                     }}
                 >
                     REM
@@ -83,15 +87,13 @@ function UnitSelector({fontSize = "2rem", borderWidth = "2px", value, onSelect})
                     className="absolute -bottom-2 -right-6 transition-all w-fit h-fit"
                     style={{
                         opacity: value === "rem" ? "1" : "0",
-                        maskImage: 'linear-gradient(to left, black 0%, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0) 100%)',
-                        WebkitMaskImage: 'linear-gradient(to left, black 0%, black 40%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.3) 75%, transparent 100%)'
                     }}
                 >
                     <TextOutline 
                         text={"UNITS ARE IN REM"} 
                         fontSize={`calc(${fontSize} * 3.2)`}
-                        outlineColor={"white"} 
-                        outlineWidth={`calc(${fontSize} * 0.1)`}
+                        outlineColor={"#0A0A0A"} 
+                        outlineWidth={`calc(${fontSize} * 0.15)`}
                     ></TextOutline>
                 </div>
 

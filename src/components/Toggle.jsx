@@ -18,7 +18,7 @@ function Toggle({fontSize = "1rem", padding = "1rem", borderWidth = "2px", first
 
     return (
         <button
-            className="w-fit h-fit flex justify-center items-center bg-graphite-900 border-[2px_2px_2px_0px] border-white hover:bg-graphite-500 transition-all duration-500 cursor-pointer"
+            className="w-fit h-fit flex justify-center items-center bg-white border-[2px_2px_2px_0px] border-white  transition-all duration-500 cursor-pointer"
             onClick={() => onToggle(value === firstOption ? secondOption : firstOption)}
             style={{
                 width: fullWidth ? "100%" : "fit-content",
@@ -40,7 +40,8 @@ function Toggle({fontSize = "1rem", padding = "1rem", borderWidth = "2px", first
             >
                 <path
                     d="M20 50 L70 20 70 80 Z"
-                    stroke="white"
+                    stroke="#0A0A0A"
+                    fill="#0A0A0A"
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -48,7 +49,7 @@ function Toggle({fontSize = "1rem", padding = "1rem", borderWidth = "2px", first
             </svg>
 
             <div
-                className="relative font-bold leading-normal text-white w-fit h-fit"
+                className="relative font-bold leading-normal text-graphite-900 w-fit h-fit"
                 style={{
                     padding: vertical ? `${padding} 0px` : `0px ${padding}`,
                     fontSize: fontSize,
@@ -92,7 +93,8 @@ function Toggle({fontSize = "1rem", padding = "1rem", borderWidth = "2px", first
             >
                 <path
                     d="M20 50 L70 20 70 80 Z"
-                    stroke="white"
+                    stroke="#0A0A0A"
+                    fill="#0A0A0A"
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
