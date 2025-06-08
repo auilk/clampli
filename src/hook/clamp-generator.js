@@ -1,9 +1,12 @@
 import useResultStore from "../store/result-store";
 import useSelectorStore from "../store/selector-store";
+import useToggleStore from "../store/toggle-store";
 
 function useClampGenerator()
 {
     const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+    const format = useToggleStore((state) => state.format);
 
     const viewportUnit = useSelectorStore((state) => state.viewportUnit);
     const elementUnit = useSelectorStore((state) => state.elementUnit);
@@ -31,10 +34,20 @@ function useClampGenerator()
 
     if (resultUnit === "px")
     {
-        return `clamp(${minElement * rootFontSize}px, ${(slope * 100).toFixed(4)}vw + ${(offset * rootFontSize).toFixed(4)}px, ${maxElement * rootFontSize}px)`;
+        if (format === "CSS")
+        {
+            return `clamp(${minElement * rootFontSize}px, ${(slope * 100).toFixed(4)}vw + ${(offset * rootFontSize).toFixed(4)}px, ${maxElement * rootFontSize}px)`;
+        }
+        return `[clamp(${minElement * rootFontSize}px,${(slope * 100).toFixed(4)}vw+${(offset * rootFontSize).toFixed(4)}px,${maxElement * rootFontSize}px)]`;
+        
     }
 
+    if (format === "TAILWIND")
+    {
+        return `[clamp(${minElement}rem,${(slope * 100).toFixed(4)}vw+${offset.toFixed(4)}rem,${maxElement}rem)]`;
+    }
     return `clamp(${minElement}rem, ${(slope * 100).toFixed(4)}vw + ${offset.toFixed(4)}rem, ${maxElement}rem)`;
+
 }
 
 export default useClampGenerator;
