@@ -3,7 +3,7 @@ import NavLink from "./components/NavLink";
 import GitIcon from "./assets/icons/github-icon.png";
 import LinkedinIcon from "./assets/icons/linkedin-icon.png";
 import ClampliLogo from "./assets/logos/clampli-logo.png";
-import DottedBG from "./components/DottedBG";
+import Background from "./components/Background";
 import Form from "./components/Form";
 import ClampResult from "./components/ClampResult";
 import Slide from "./components/Slide";
@@ -80,7 +80,7 @@ function App()
       <main className="flex relative flex-col flex-grow min-h-0">
         <section className="flex flex-grow pb-6.5 min-h-0">
           <div className="w-full h-full flex-[6%] xs:flex-[5%] border-r-2 border-white">
-            <DottedBG></DottedBG>
+            <Background></Background>
           </div>
           
           <div className="flex flex-col items-center justify-around h-full flex-[90%]">
@@ -164,7 +164,7 @@ function App()
           </div>
 
           <div className="w-full h-full flex-[6%] xs:flex-[5%] border-l-2 border-white">
-            <DottedBG></DottedBG>
+            <Background></Background>
           </div>
         </section>
 

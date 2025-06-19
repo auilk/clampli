@@ -1,6 +1,14 @@
 import { useEffect, useRef } from "react";
 
-function DottedBG()
+/**
+ * Animated WebGL background rendered with shaders.
+ *
+ * Renders a full-screen or container-bound canvas with GPU-accelerated visual effects.
+ *
+ * @component
+ * @returns {JSX.Element} The WebGL canvas.
+ */
+function Background()
 {
     const canvas = useRef(null);
     const animationRequest = useRef(null);
@@ -91,13 +99,11 @@ function DottedBG()
                 }
 
                 int zTiling = 4;
-                float density = 4.0;
-                float z = mod(uTime * 0.3, float(zTiling));
-                float noise = Noise(vec3(floor(uv * density) / density, z), float(zTiling));
+                float z = mod(uTime * 0.05, float(zTiling));
+                float noise = Noise(vec3(uv, z), float(zTiling));
+                float bg = step(fract(noise * 4.0), 0.1);
 
-                float circle = step(length(fract(uv * density) * 2.0 - 1.0), min(noise + 0.1, 0.2));
-
-                FragColor = vec4(vec3(circle), 1.0);
+                FragColor = vec4(vec3(bg * 0.8), 1.0);
             }`;
 
         const vertexShader = gl.createShader(gl.VERTEX_SHADER);
@@ -215,4 +221,4 @@ function DottedBG()
     );
 }
 
-export default DottedBG;
+export default Background;
