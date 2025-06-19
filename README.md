@@ -2,6 +2,10 @@
 
 **Clampli** is a responsive CSS `clamp()` generator made for designers and developers who want fluid typography and layout scaling without the math. Just input your min/max viewport widths and sizes, and get a clean `clamp()` formula you can plug directly into your CSS or TailwindCSS.
 
+## Live Demo
+
+Try Clampli in action: [CLAMPLI](https://auilk.github.io/Clampli/)
+
 ## Screenshots
 
 ### Desktop
