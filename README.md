@@ -4,7 +4,9 @@
 
 ## Screenshots
 
-_(Screenshots will be added when available)_
+### Desktop
+![Calculator](./public/screenshots/Screenshot01.webp)
+![How It Works](./public/screenshots/Screenshot02.webp)
 
 ## Features
 
@@ -37,8 +39,9 @@ npm run dev
 
 ## Tech Used
 
-- React.js (with [Vite](https://vite.dev/))
+- [React.js](https://react.dev/) (with [Vite](https://vite.dev/))
 - [TailwindCSS](https://tailwindcss.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
 
 ## Contributing
 
