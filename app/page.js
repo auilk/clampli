@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { NavBar } from "./components/NavBar";
 import NavLink from "./components/NavLink";
 import Background from "./components/Background";
@@ -6,24 +5,23 @@ import ElementForm from "./components/ElementForm";
 import ViewportForm from "./components/ViewportForm";
 import ClampResult from "./components/ClampResult";
 import Slide from "./components/Slide";
+import nextConfig from "@/next.config.mjs";
 
 export const metadata = {
   title: "CLAMPLI",
-  description:
-    "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+  description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
   icons: {
-    icon: "/favicon/favicon.svg",
-    apple: "/favicon/apple-touch-icon.png",
+    icon: `${nextConfig.basePath}/favicon/favicon.svg`,
+    apple: "/clampli/favicon/apple-touch-icon.png",
   },
   openGraph: {
     title: "CLAMPLI",
-    description:
-      "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+    description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
     url: "https://auilk.github.io/clampli/",
     siteName: "CLAMPLI",
     images: [
       {
-        url: "/banner.jpg",
+        url: `${nextConfig.basePath}/banner.jpg`,
         width: 1200,
         height: 630,
         alt: "CLAMPLI Banner",
@@ -35,9 +33,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CLAMPLI",
-    description:
-      "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
-    images: ["/banner.jpg"],
+    description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+    images: [`${nextConfig.basePath}/banner.jpg`],
   },
 };
 
@@ -61,7 +58,7 @@ export default function Home()
             link="https://github.com/auilk" 
             text="GitHub" 
             fontSize="clamp(0.35rem, 0.283rem + 0.337vw, 0.7rem)"
-            icon="/icons/github-icon.png"
+            icon={`${nextConfig.basePath}/icons/github-icon.png`}
             iconSize="clamp(0.75rem, 0.625rem + 0.627vw, 1.4rem)"
           ></NavLink>
 
@@ -70,7 +67,7 @@ export default function Home()
             link="https://github.com/auilk" 
             text="LinkedIn" 
             fontSize="clamp(0.35rem, 0.283rem + 0.337vw, 0.7rem)"
-            icon="/icons/linkedin-icon.png"
+            icon={`${nextConfig.basePath}/icons/linkedin-icon.png`}
             iconSize="clamp(0.75rem, 0.625rem + 0.627vw, 1.4rem)"
           ></NavLink>
 
@@ -92,8 +89,9 @@ export default function Home()
             }}
           >
             <img
-              src="/logos/clampli-logo.png"
+              src={`${nextConfig.basePath}/logos/clampli-logo.png`}
               alt="Website logo"
+              className="w-full h-full object-cover"
             ></img>
           </div>
         </NavBar>

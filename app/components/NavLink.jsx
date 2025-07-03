@@ -2,7 +2,6 @@
 
 import { useContext } from "react";
 import { NavBarContext } from "./NavBar";
-import Image from "next/image";
 
 /**
  * Renders a styled navigation link with optional icon and custom content.
@@ -44,6 +43,7 @@ function NavLink({position = "center", link, text = "click", textColor = "white"
                 <img
                     src={icon}
                     alt="icon"
+                    className="w-full h-full object-cover"
                 ></img>
             </div>
 
