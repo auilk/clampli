@@ -5,6 +5,7 @@ import Background from "./components/Background";
 import ElementForm from "./components/ElementForm";
 import ViewportForm from "./components/ViewportForm";
 import ClampResult from "./components/ClampResult";
+import Slide from "./components/Slide";
 
 export default function Home()
 {
@@ -97,6 +98,8 @@ export default function Home()
             <Background></Background>
           </div>
         </section>
+
+        <Slide></Slide>
       </main>
     </>
   );
