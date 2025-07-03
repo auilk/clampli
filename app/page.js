@@ -2,8 +2,11 @@ import Image from "next/image";
 import { NavBar } from "./components/NavBar";
 import NavLink from "./components/NavLink";
 import Background from "./components/Background";
+import ElementForm from "./components/ElementForm";
+import ViewportForm from "./components/ViewportForm";
 
-export default function Home() {
+export default function Home()
+{
   return (
     <>
       <header className="flex flex-col">
@@ -63,7 +66,25 @@ export default function Home() {
             <Background></Background>
           </div>
           
-          <div className="flex flex-col items-center justify-around h-full flex-[90%]"></div>
+          <div className="flex flex-col items-center justify-around h-full flex-[90%]">
+            <div 
+              className="w-[90%] flex flex-col items-center justify-center"
+              style={{
+                gap: "clamp(1.25rem, 0.709rem + 2.703vw, 5rem)"
+              }}
+            >
+              <div 
+                className="flex xs:flex-row flex-col justify-center"
+                style={{
+                  gap: "clamp(20px, -49.189px + 21.622vw, 500px)"
+                }}
+              >
+                <ElementForm></ElementForm>
+
+                <ViewportForm></ViewportForm>
+              </div>
+            </div>
+          </div>
 
           <div className="w-full h-full flex-[6%] xs:flex-[5%] border-l-2 border-white">
             <Background></Background>
