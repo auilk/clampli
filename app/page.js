@@ -52,8 +52,9 @@ export default function Home()
           >
             <Image
               src="/logos/clampli-logo.png"
-              alt="Websit logo"
-              fill
+              alt="Website logo"
+              fill={true}
+              sizes="10vw"
               className="object-cover"
             ></Image>
           </div>
