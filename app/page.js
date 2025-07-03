@@ -7,6 +7,42 @@ import ViewportForm from "./components/ViewportForm";
 import ClampResult from "./components/ClampResult";
 import Slide from "./components/Slide";
 
+export const metadata = {
+  title: "CLAMPLI",
+  description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+  icons: {
+    icon: "https://auilk.github.io/Clampli/favicon/favicon.svg",
+    apple: "https://auilk.github.io/Clampli/favicon/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "CLAMPLI",
+    description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+    url: "https://auilk.github.io/Clampli/",
+    siteName: "CLAMPLI",
+    images: [
+      {
+        url: "https://auilk.github.io/Clampli/banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "CLAMPLI Banner",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CLAMPLI",
+    description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+    images: ["https://auilk.github.io/Clampli/banner.jpg"],
+  },
+};
+
+export const viewport = {
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#0A0A0A",
+};
+
 export default function Home()
 {
   return (
