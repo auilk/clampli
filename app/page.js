@@ -4,6 +4,7 @@ import NavLink from "./components/NavLink";
 import Background from "./components/Background";
 import ElementForm from "./components/ElementForm";
 import ViewportForm from "./components/ViewportForm";
+import ClampResult from "./components/ClampResult";
 
 export default function Home()
 {
@@ -84,6 +85,11 @@ export default function Home()
 
                 <ViewportForm></ViewportForm>
               </div>
+
+              <ClampResult
+                fontSize="clamp(0.4rem, 0.256rem + 0.721vw, 1.4rem)"
+                borderWidth="clamp(1px, 0.614px + 0.12vw, 3px)"
+              ></ClampResult>
             </div>
           </div>
 
