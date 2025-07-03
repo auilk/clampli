@@ -41,13 +41,10 @@ function NavLink({position = "center", link, text = "click", textColor = "white"
                     height: iconSize,
                 }}
             >
-                <Image
+                <img
                     src={icon}
                     alt="icon"
-                    fill={true}
-                    sizes="10vw"
-                    className="object-cover"
-                ></Image>
+                ></img>
             </div>
 
             <p 

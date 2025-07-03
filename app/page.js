@@ -9,19 +9,21 @@ import Slide from "./components/Slide";
 
 export const metadata = {
   title: "CLAMPLI",
-  description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+  description:
+    "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
   icons: {
-    icon: "https://auilk.github.io/Clampli/favicon/favicon.svg",
-    apple: "https://auilk.github.io/Clampli/favicon/apple-touch-icon.png",
+    icon: "/favicon/favicon.svg",
+    apple: "/favicon/apple-touch-icon.png",
   },
   openGraph: {
     title: "CLAMPLI",
-    description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
-    url: "https://auilk.github.io/Clampli/",
+    description:
+      "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+    url: "https://auilk.github.io/clampli/",
     siteName: "CLAMPLI",
     images: [
       {
-        url: "https://auilk.github.io/Clampli/banner.jpg",
+        url: "/banner.jpg",
         width: 1200,
         height: 630,
         alt: "CLAMPLI Banner",
@@ -33,8 +35,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CLAMPLI",
-    description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
-    images: ["https://auilk.github.io/Clampli/banner.jpg"],
+    description:
+      "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
+    images: ["/banner.jpg"],
   },
 };
 
@@ -88,13 +91,10 @@ export default function Home()
               width: "clamp(2.5rem, 1.825rem + 3.373vw, 6rem)",
             }}
           >
-            <Image
+            <img
               src="/logos/clampli-logo.png"
               alt="Website logo"
-              fill={true}
-              sizes="10vw"
-              className="object-cover"
-            ></Image>
+            ></img>
           </div>
         </NavBar>
       </header>
