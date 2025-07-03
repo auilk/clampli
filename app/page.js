@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { NavBar } from "./components/NavBar";
 import NavLink from "./components/NavLink";
+import Background from "./components/Background";
 
 export default function Home() {
   return (
-    <header>
+    <>
       <header className="flex flex-col">
         <NavBar 
           gap="clamp(5px, 4.286px + 0.223vw, 10px)"
@@ -48,12 +49,27 @@ export default function Home() {
           >
             <Image
               src="/logos/clampli-logo.png"
+              alt="Websit logo"
               fill
               className="object-cover"
             ></Image>
           </div>
         </NavBar>
       </header>
-    </header>
+
+      <main className="flex relative flex-col flex-grow min-h-0">
+        <section className="flex flex-grow pb-6.5 min-h-0">
+          <div className="w-full h-full flex-[6%] xs:flex-[5%] border-r-2 border-white">
+            <Background></Background>
+          </div>
+          
+          <div className="flex flex-col items-center justify-around h-full flex-[90%]"></div>
+
+          <div className="w-full h-full flex-[6%] xs:flex-[5%] border-l-2 border-white">
+            <Background></Background>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
