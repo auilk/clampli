@@ -43,7 +43,7 @@ npm run dev
 
 ## Tech Used
 
-- [React.js](https://react.dev/) (with [Vite](https://vite.dev/))
+- [React.js](https://react.dev/) (with [Next.js](https://nextjs.org/))
 - [TailwindCSS](https://tailwindcss.com/)
 - [Zustand](https://zustand-demo.pmnd.rs/)
 
