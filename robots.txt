@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://auilk.github.io/clampli/
-
-# Sitemaps
 Sitemap: https://auilk.github.io/clampli/sitemap.xml
