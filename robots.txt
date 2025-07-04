@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://auilk.github.io/clampli/sitemap.xml
+Sitemap: https://auilk.github.io/clampli/clamplimap.xml
