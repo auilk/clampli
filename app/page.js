@@ -36,6 +36,9 @@ export const metadata = {
     description: "CLAMPLI helps web developers create fluid, responsive CSS clamp() values for typography, spacing, and layout; no media queries required.",
     images: [`${nextConfig.basePath}/banner.jpg`],
   },
+  other: {
+    'google-site-verification': 'WvsLYC226hgkiRoLwwJ2v1nltuMpfNsJaNaLypzTZd8',
+  },
 };
 
 export const viewport = {
